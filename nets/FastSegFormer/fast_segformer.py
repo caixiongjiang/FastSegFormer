@@ -50,7 +50,6 @@ class _DWConv(nn.Module):
 class _DSConv(nn.Module):
     """
     Depthwise Separable Convolutions
-    深度可分离卷积 = 深度卷积 + 1*1（逐点）卷积
     """
 
     def __init__(self, dw_channels, out_channels, stride=1, **kwargs):
