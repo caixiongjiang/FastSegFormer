@@ -1,5 +1,6 @@
 import os
 import datetime
+import argparse
 
 import numpy as np
 import torch
@@ -8,12 +9,14 @@ import torch.distributed as dist
 import torch.optim as optim
 from torch.utils.data import DataLoader
 
-from nets.FastSCNN.fast_scnn import FastSCNN                 # pretrained = False model_path = ""
-from nets.FANet.fa_net import FANet                          # pretrained = False model_path = ""
-from nets.FastSegFormer.fast_segformer import FastSegFormer  # pretrained = False model_path is not None
-from nets.SwiftNet.swiftnet import SwiftNet                  # pretrained = False model_path = ""
-from nets.BiseNet.bisenet import BiSeNet                     # pretrained = False model_path = ""
-from nets.UNet.swinTS_Att_Unet import swinTS_Att_Unet        # pretrained = False model_path is not None
+from nets.FastSCNN.fast_scnn import FastSCNN                 # pretrained = False model_path is None (no pretrained)
+from nets.FANet.fa_net import FANet                          # pretrained = False model_path is None
+from nets.FastSegFormer.fast_segformer import FastSegFormer  # pretrained = False model_path = ""
+from nets.SwiftNet.swiftnet import SwiftNet                  # pretrained = False model_path is None
+from nets.BiseNet.bisenet import BiSeNet                     # pretrained = False model_path is None
+from nets.ENet.enet import ENet                              # pretrained = False model_path is None (no pretrained)
+from nets.ESPNetV2.espnetv2_seg import ESPNetv2Segmentation  # pretrained = False model_path = ""
+from nets.UNet.swinTS_Att_Unet import swinTS_Att_Unet        # pretrained = False model_path = ""
 
 
 from nets.unet_training import get_lr_scheduler, set_optimizer_lr, weights_init
@@ -102,6 +105,12 @@ if __name__ == "__main__":
     # model = FastSCNN(num_classes=num_classes)
     # model = SwiftNet(num_classes=num_classes)
     # model = BiSeNet(nclass=num_classes, backbone=backbone, spatial_path=True)
+    # model = ENet(4)
+
+    # parser = argparse.ArgumentParser(description='Testing')
+    # args = parser.parse_args()
+    # args.s = 2.0
+    # model = ESPNetv2Segmentation(args, 4)
 
 
     # student model

@@ -1,6 +1,6 @@
 import torch
 import time
-
+import argparse
 
 from nets.FANet.fa_net import FANet
 from nets.FastSCNN.fast_scnn import FastSCNN
@@ -8,6 +8,8 @@ from nets.SwiftNet.swiftnet import SwiftNet
 from nets.BiseNet.bisenet import BiSeNet
 from nets.FastSegFormer.fast_segformer import FastSegFormer
 from nets.UNet.swinTS_Att_Unet import swinTS_Att_Unet
+from nets.ENet.enet import ENet
+from nets.ESPNetV2.espnetv2_seg import ESPNetv2Segmentation
 
 
 
@@ -16,7 +18,7 @@ def run(model, size, name):
     model.eval()
     t_cnt = 0.0
     with torch.no_grad():
-        input = torch.rand(size).cuda()
+        input = torch.randn(size).cuda()
         torch.cuda.synchronize()
         x = model(input)
         x = model(input)
@@ -37,6 +39,10 @@ def run(model, size, name):
 
 
 if __name__ == "__main__":
+
+    ENet = ENet(4)
+    run(ENet, size=(1, 3, 224, 224), name='ENet')
+
     FANet18 = FANet(4, backbone='resnet18')
     run(FANet18, size=(1, 3, 224, 224), name='FANet-18')
 
@@ -51,6 +57,12 @@ if __name__ == "__main__":
 
     BiSeNet = BiSeNet(4)
     run(BiSeNet, size=(1, 3, 224, 224), name='BiSeNet')
+
+    parser = argparse.ArgumentParser(description='Testing')
+    args = parser.parse_args()
+    args.s = 2.0
+    ESPNetV2_Seg = ESPNetv2Segmentation(args, 4)
+    run(ESPNetV2_Seg, size=(1, 3, 224, 224), name='ESPNetV2_Seg')
 
     FastSegFormer_1 = FastSegFormer(4, backbone='efficientformerV2_s0')
     run(FastSegFormer_1, size=(1, 3, 224, 224), name='FastSegFormer_EF_P')
