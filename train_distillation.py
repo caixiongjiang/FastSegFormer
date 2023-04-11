@@ -43,6 +43,8 @@ if __name__ == "__main__":
     """
     input_shape = [512, 512]
     Multi_resolution = True
+    # input_shape = [224, 224]
+    # Multi_resolution = False
 
     Init_Epoch = 0
     Freeze_Epoch = 0
