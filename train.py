@@ -15,7 +15,7 @@ from nets.FastSegFormer.fast_segformer import FastSegFormer  # pretrained = Fals
 from nets.SwiftNet.swiftnet import SwiftNet                  # pretrained = False model_path is None
 from nets.BiseNet.bisenet import BiSeNet                     # pretrained = False model_path is None
 from nets.ENet.enet import ENet                              # pretrained = False model_path is None (no pretrained)
-from nets.ESPNetV2.espnetv2_seg import ESPNetv2Segmentation  # pretrained = False model_path = ""
+from nets.ESPNetV2.espnetv2_seg import espnetv2_seg          # pretrained = False model_path is None
 from nets.UNet.swinTS_Att_Unet import swinTS_Att_Unet        # pretrained = False model_path = ""
 
 
@@ -109,8 +109,11 @@ if __name__ == "__main__":
 
     # parser = argparse.ArgumentParser(description='Testing')
     # args = parser.parse_args()
+    # args.classes = num_classes
     # args.s = 2.0
-    # model = ESPNetv2Segmentation(args, 4)
+    # args.weights = 'model_data/espnetv2_s_2.0_imagenet_224x224.pth'
+    # args.dataset = 'pascal'
+    # model = espnetv2_seg(args)
 
 
     # student model

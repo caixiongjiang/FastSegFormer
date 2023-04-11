@@ -163,6 +163,36 @@ class ESPNetv2Segmentation(nn.Module):
 
         return F.interpolate(bu_out, size=x_size, mode='bilinear', align_corners=True)
 
+def espnetv2_seg(args):
+    classes = args.classes
+    scale=args.s
+    weights = args.weights
+    model = ESPNetv2Segmentation(args, classes=classes)
+    if weights:
+        import os
+        if os.path.isfile(weights):
+            num_gpus = torch.cuda.device_count()
+            device = 'cuda' if num_gpus >= 1 else 'cpu'
+            pretrained_dict = torch.load(weights, map_location=torch.device(device))
+        else:
+            print('Weight file does not exist at {}. Please check. Exiting!!'.format(weights))
+            exit()
+        print('Loading pretrained basenet model weights')
+        basenet_dict = model.base_net.state_dict()
+        model_dict = model.state_dict()
+        overlap_dict = {k: v for k, v in pretrained_dict.items() if k in basenet_dict}
+        if len(overlap_dict) == 0:
+            print('No overlaping weights between model file and pretrained weight file. Please check')
+            exit()
+        print('{:.2f} % of weights copied from basenet to segnet'.format(len(overlap_dict) * 1.0/len(model_dict) * 100))
+        basenet_dict.update(overlap_dict)
+        model.base_net.load_state_dict(basenet_dict)
+        print('Pretrained basenet model loaded!!')
+    else:
+        print('Training from scratch!!')
+    return model
+
+
 
 if __name__ == "__main__":
 
