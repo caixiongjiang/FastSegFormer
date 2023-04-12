@@ -25,7 +25,9 @@ device = torch.device("cpu")
 # net = FastSCNN(num_classes=4)
 # net = SwiftNet(num_classes=4)
 # net = BiSeNet(nclass=4)
-
+net = get_pred_model('pidnet_s', num_classes=4)
+# net = get_pred_model('pidnet_m', num_classes=4)
+# net = get_pred_model('pidnet_l', num_classes=4)
 
 # net = FastSegFormer(num_classes=4, pretrained=False, backbone="efficientformerV2_s0", Pyramid="pooling")
 # net = FastSegFormer(num_classes=4, pretrained=False, backbone="efficientformerV2_s0", Pyramid="multiscale")
