@@ -12,7 +12,7 @@ from nets.FastSCNN.fast_scnn import FastSCNN
 from nets.SwiftNet.swiftnet import SwiftNet
 from nets.BiseNet.bisenet import BiSeNet
 from nets.ENet.enet import ENet
-from nets.ESPNetV2.espnetv2_seg import ESPNetv2Segmentation
+from nets.PIDNet.pidnet import get_pred_model
 
 
 
@@ -26,10 +26,6 @@ device = torch.device("cpu")
 # net = SwiftNet(num_classes=4)
 # net = BiSeNet(nclass=4)
 
-parser = argparse.ArgumentParser(description='Testing')
-args = parser.parse_args()
-args.s = 2.0
-net = ESPNetv2Segmentation(args, 4)
 
 # net = FastSegFormer(num_classes=4, pretrained=False, backbone="efficientformerV2_s0", Pyramid="pooling")
 # net = FastSegFormer(num_classes=4, pretrained=False, backbone="efficientformerV2_s0", Pyramid="multiscale")

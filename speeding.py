@@ -1,6 +1,5 @@
 import torch
 import time
-import argparse
 
 from nets.FANet.fa_net import FANet
 from nets.FastSCNN.fast_scnn import FastSCNN
@@ -9,7 +8,7 @@ from nets.BiseNet.bisenet import BiSeNet
 from nets.FastSegFormer.fast_segformer import FastSegFormer
 from nets.UNet.swinTS_Att_Unet import swinTS_Att_Unet
 from nets.ENet.enet import ENet
-from nets.ESPNetV2.espnetv2_seg import ESPNetv2Segmentation
+from nets.PIDNet.pidnet import get_pred_model
 
 
 
@@ -58,11 +57,14 @@ if __name__ == "__main__":
     BiSeNet = BiSeNet(4)
     run(BiSeNet, size=(1, 3, 224, 224), name='BiSeNet')
 
-    parser = argparse.ArgumentParser(description='Testing')
-    args = parser.parse_args()
-    args.s = 2.0
-    ESPNetV2_Seg = ESPNetv2Segmentation(args, 4)
-    run(ESPNetV2_Seg, size=(1, 3, 224, 224), name='ESPNetV2_Seg')
+    PIDNet_S = get_pred_model('pidnet_s', 4)
+    run(PIDNet_S, size=(1, 3, 224, 224), name='PIDNet-S')
+
+    PIDNet_M = get_pred_model('pidnet_m', 4)
+    run(PIDNet_M, size=(1, 3, 224, 224), name='PIDNet-M')
+
+    PIDNet_L = get_pred_model('pidnet_l', 4)
+    run(PIDNet_L, size=(1, 3, 224, 224), name='PIDNet-L')
 
     FastSegFormer_1 = FastSegFormer(4, backbone='efficientformerV2_s0')
     run(FastSegFormer_1, size=(1, 3, 224, 224), name='FastSegFormer_EF_P')

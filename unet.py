@@ -15,6 +15,7 @@ from nets.FastSCNN.fast_scnn import FastSCNN
 from nets.SwiftNet.swiftnet import SwiftNet
 from nets.BiseNet.bisenet import BiSeNet
 from nets.ENet.enet import ENet
+from nets.PIDNet.pidnet import get_pred_model
 from nets.FastSegFormer.fast_segformer import FastSegFormer
 from nets.UNet.swinTS_Att_Unet import swinTS_Att_Unet
 
@@ -59,10 +60,13 @@ class Unet(object):
         # self.net = FastSCNN(num_classes=self.num_classes)
         # self.net = SwiftNet(num_classes=4)
         # self.net = BiSeNet(nclass=self.num_classes)
-        self.net = ENet(num_classes=self.num_classes)
+        # self.net = ENet(num_classes=self.num_classes)
+        # self.net = get_pred_model('pidnet_s', num_classes=self.num_classes)
+        # self.net = get_pred_model('pidnet_m', num_classes=self.num_classes)
+        # self.net = get_pred_model('pidnet_l', num_classes=self.num_classes)
         # self.net = FastSegFormer(num_classes=self.num_classes, pretrained=False, backbone=self.backbone, Pyramid="pooling")
         # self.net = FastSegFormer(num_classes=self.num_classes, pretrained=False, backbone=self.backbone, Pyramid="multiscale")
-        # self.net = FastSegFormer(num_classes=self.num_classes, pretrained=False, backbone=self.backbone, Pyramid="multiscale", cnn_branch=True)
+        self.net = FastSegFormer(num_classes=self.num_classes, pretrained=False, backbone=self.backbone, Pyramid="multiscale", cnn_branch=True)
         # self.net = PSPNet(num_classes=self.num_classes, backbone=self.backbone, pretrained=False, aux_branch=True)
 
         device      = torch.device('cuda' if torch.cuda.is_available() else 'cpu')

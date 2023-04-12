@@ -15,7 +15,7 @@ from nets.FastSegFormer.fast_segformer import FastSegFormer  # pretrained = Fals
 from nets.SwiftNet.swiftnet import SwiftNet                  # pretrained = False model_path is None
 from nets.BiseNet.bisenet import BiSeNet                     # pretrained = False model_path is None
 from nets.ENet.enet import ENet                              # pretrained = False model_path is None (no pretrained)
-from nets.ESPNetV2.espnetv2_seg import espnetv2_seg          # pretrained = False model_path is None
+from nets.PIDNet.pidnet import get_pred_model                # pretrained = False model_path = ""
 from nets.UNet.swinTS_Att_Unet import swinTS_Att_Unet        # pretrained = False model_path = ""
 
 
@@ -106,14 +106,9 @@ if __name__ == "__main__":
     # model = SwiftNet(num_classes=num_classes)
     # model = BiSeNet(nclass=num_classes, backbone=backbone, spatial_path=True)
     # model = ENet(4)
-
-    # parser = argparse.ArgumentParser(description='Testing')
-    # args = parser.parse_args()
-    # args.classes = num_classes
-    # args.s = 2.0
-    # args.weights = 'model_data/espnetv2_s_2.0_imagenet_224x224.pth'
-    # args.dataset = 'pascal'
-    # model = espnetv2_seg(args)
+    # model = get_pred_model('pidnet_s', num_classes=num_classes)
+    # model = get_pred_model('pidnet_m', num_classes=num_classes)
+    # model = get_pred_model('pidnet_l', num_classes=num_classes)
 
 
     # student model
@@ -126,7 +121,6 @@ if __name__ == "__main__":
     # model = FastSegFormer(num_classes=num_classes, pretrained=pretrained, backbone=backbone, Pyramid="multiscale")
     # model = FastSegFormer(num_classes=num_classes, pretrained=pretrained, backbone=backbone, Pyramid="multiscale", cnn_branch=True)
     # model = swinTS_Att_Unet(num_classes=num_classes, pretrained=pretrained, backbone=backbone)
-    # model = PSPNet(num_classes=num_classes, backbone=backbone, pretrained=pretrained, aux_branch=True, fork_feat=False)
 
 
     if not pretrained:
@@ -139,12 +133,17 @@ if __name__ == "__main__":
         load_key, no_load_key, temp_dict = [], [], {}
         if backbone == "resnet50" or backbone == "none":
             pretrained_dict = torch.load(model_path, map_location=device)
+
+        elif backbone == 'PIDNet_S' or backbone == 'PIDNet_M' or backbone == 'PIDNet_L':
+            pretrained_dict = torch.load(model_path, map_location=device)['state_dict']
+
         elif backbone == "efficientformerV2_s0" or backbone == "swin_T_224" or backbone == "swin_S_224":
             pretrained_dict = torch.load(model_path, map_location=device)['model']
             backbone_stat_dict = {}
             for i in pretrained_dict.keys():
                 backbone_stat_dict["common_backbone." + i] = pretrained_dict[i]
             pretrained_dict.update(backbone_stat_dict)
+
         else:
             pretrained_dict = torch.load(model_path, map_location=device)
             backbone_stat_dict = {}
