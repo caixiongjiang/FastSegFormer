@@ -267,7 +267,7 @@ if __name__ == "__main__":
                              drop_last=True, collate_fn=unet_dataset_collate, sampler=val_sampler)
 
         if local_rank == 0:
-            eval_callback = EvalCallback(s_model, input_shape, num_classes, val_lines, VOCdevkit_path, log_dir, Cuda, \
+            eval_callback = EvalCallback(Multi_resolution, s_model, input_shape, num_classes, val_lines, VOCdevkit_path, log_dir, Cuda, \
                                          eval_flag=eval_flag, period=eval_period, distillation=True)
         else:
             eval_callback = None

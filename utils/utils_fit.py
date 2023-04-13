@@ -230,7 +230,10 @@ def fit_one_epoch_distillation(Multi_resolution, s_model_train, s_model, t_model
         else:
             from torch.cuda.amp import autocast
             with autocast():
-                s_features_out = s_model_train(s_imgs)
+                if Multi_resolution:
+                    s_features_out = s_model_train(s_imgs)
+                else:
+                    s_features_out = s_model_train(t_imgs)
                 t_features_out = t_model_eval(t_imgs)
 
 

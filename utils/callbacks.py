@@ -89,10 +89,11 @@ class LossHistory():
         plt.close("all")
 
 class EvalCallback():
-    def __init__(self, net, input_shape, num_classes, image_ids, dataset_path, log_dir, cuda, \
+    def __init__(self, Multi_resolution, net, input_shape, num_classes, image_ids, dataset_path, log_dir, cuda, \
             miou_out_path=".temp_miou_out", eval_flag=True, period=1, distillation=False):
         super(EvalCallback, self).__init__()
 
+        self.Multi_resolution   = Multi_resolution
         self.net                = net
         self.input_shape        = input_shape
         self.num_classes        = num_classes
@@ -117,7 +118,7 @@ class EvalCallback():
         image       = cvtColor(image)
         orininal_h  = np.array(image).shape[0]
         orininal_w  = np.array(image).shape[1]
-        if self.distillation:
+        if self.distillation and self.Multi_resolution:
             image_data, nw, nh = resize_image(image, (224, 224)) # 224 * 224 is student's output image shape
         else:
             image_data, nw, nh  = resize_image(image, (self.input_shape[1],self.input_shape[0]))
