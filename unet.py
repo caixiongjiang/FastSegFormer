@@ -146,17 +146,8 @@ class Unet(object):
         t1 = time.time()
         for _ in range(test_interval):
             with torch.no_grad():
-                #---------------------------------------------------#
-                #   图片传入网络进行预测
-                #---------------------------------------------------#
                 pr = self.net(images)[0]
-                #---------------------------------------------------#
-                #   取出每一个像素点的种类
-                #---------------------------------------------------#
                 pr = F.softmax(pr.permute(1,2,0),dim = -1).cpu().numpy().argmax(axis=-1)
-                #--------------------------------------#
-                #   将灰条部分截取掉
-                #--------------------------------------#
                 pr = pr[int((self.input_shape[0] - nh) // 2) : int((self.input_shape[0] - nh) // 2 + nh), \
                         int((self.input_shape[1] - nw) // 2) : int((self.input_shape[1] - nw) // 2 + nw)]
         t2 = time.time()

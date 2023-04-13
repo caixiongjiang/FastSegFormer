@@ -117,7 +117,10 @@ class EvalCallback():
         image       = cvtColor(image)
         orininal_h  = np.array(image).shape[0]
         orininal_w  = np.array(image).shape[1]
-        image_data, nw, nh  = resize_image(image, (self.input_shape[1],self.input_shape[0]))
+        if self.distillation:
+            image_data, nw, nh = resize_image(image, (224, 224)) # 224 * 224 is student's output image shape
+        else:
+            image_data, nw, nh  = resize_image(image, (self.input_shape[1],self.input_shape[0]))
         image_data  = np.expand_dims(np.transpose(preprocess_input(np.array(image_data, np.float32)), (2, 0, 1)), 0)
 
         with torch.no_grad():
