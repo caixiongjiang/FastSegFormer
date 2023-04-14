@@ -133,7 +133,10 @@ class EvalCallback():
             else:
                 pr = self.net(images)[0]
             pr = F.softmax(pr.permute(1,2,0),dim = -1).cpu().numpy()
-            pr = pr[int((self.input_shape[0] - nh) // 2) : int((self.input_shape[0] - nh) // 2 + nh), \
+            if self.Multi_resolution and self.distillation:
+                pr = pr[int((224 - nh) // 2): int((224 - nh) // 2 + nh), int((224 - nw) // 2): int((224 - nw) // 2 + nw)]
+            else:
+                pr = pr[int((self.input_shape[0] - nh) // 2) : int((self.input_shape[0] - nh) // 2 + nh), \
                     int((self.input_shape[1] - nw) // 2) : int((self.input_shape[1] - nw) // 2 + nw)]
             pr = cv2.resize(pr, (orininal_w, orininal_h), interpolation = cv2.INTER_LINEAR)
             pr = pr.argmax(axis=-1)
