@@ -25,8 +25,12 @@ class NFD_loss_after_conv1x1(nn.Module):
         self.conv1x1 = nn.Conv2d(s_channel, t_channel, 1)
 
     def forward(self, f_t, f_s):
+        t_N, t_C, t_W, t_H = f_s.shape
         s_N, s_C, s_W, s_H = f_s.shape
-        f_t = F.interpolate(f_t, size=(s_W, s_H), mode='bilinear', align_corners=True)
+        if t_W == s_W and t_H == s_H:
+            f_t = f_t
+        else:
+            f_t = F.interpolate(f_t, size=(s_W, s_H), mode='bilinear', align_corners=True)
         if self.t_channel != self.s_channel:
             f_s = self.conv1x1(f_s)
         f_t.detach()
@@ -45,8 +49,12 @@ def kl_pixel_loss(output_t, output_s, alpha=0.5, temperature=2):
     """
     kd loss = 0.5 * pixel loss + 0.5 * kl loss
     """
+    _, _, t_W, t_H = output_t.shape
     _, _, W, H = output_s.shape
-    output_t = F.interpolate(output_t, (W, H), mode='bilinear', align_corners=True)
+    if t_W == W and t_H == H:
+        output_t = output_t
+    else:
+        output_t = F.interpolate(output_t, (W, H), mode='bilinear', align_corners=True)
     output_t.detach()
     soft_output_s = F.softmax(output_s / temperature, dim=1)
     soft_output_t = F.softmax(output_t / temperature, dim=1)
