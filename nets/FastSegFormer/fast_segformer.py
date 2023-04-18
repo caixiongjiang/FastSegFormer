@@ -30,8 +30,7 @@ class _ConvBNReLU(nn.Module):
 
 class _DWConv(nn.Module):
     """
-    Depthwise Convolutions
-    DW卷积
+    Depthwise Convolutions(DW Conv)
     """
     def __init__(self, dw_channels, out_channels, stride=1, **kwargs):
         super(_DWConv, self).__init__()
@@ -49,7 +48,7 @@ class _DWConv(nn.Module):
 
 class _DSConv(nn.Module):
     """
-    Depthwise Separable Convolutions
+    Depthwise Separable Convolutions(DS Conv)
     """
 
     def __init__(self, dw_channels, out_channels, stride=1, **kwargs):
@@ -72,7 +71,7 @@ class _DSConv(nn.Module):
 
 class LinearBottleneck(nn.Module):
     """
-    LinearBottleneck used in MobileNetV2
+    LinearBottleneck(LB) used in MobileNetV2
     """
 
     def __init__(self, in_channels, out_channels, t=6, stride=2, **kwargs):
@@ -98,7 +97,7 @@ class LinearBottleneck(nn.Module):
 
 
 class PyramidPooling(nn.Module):
-    """Pyramid pooling module"""
+    """Pyramid pooling module(PPM)"""
 
     def __init__(self, in_channels, out_channels, **kwargs):
         super(PyramidPooling, self).__init__()
@@ -130,7 +129,7 @@ class PyramidPooling(nn.Module):
 
 class MultiscalePyramid(nn.Module):
     """
-    Multi-scale Convolution Pyramid
+    Multi-scale Pyramid(MSP)
     """
     def __init__(self, in_channels, out_channels, **kwargs):
         super(MultiscalePyramid, self).__init__()
@@ -269,7 +268,7 @@ class FastSegFormer(nn.Module):
 
         if the network is used in knowledge distillation training, set the option fork_feat=True.
 
-        if cnn_branch = True, the parameters of the network will increase and cnn_branch can be True if the backbone == efficientformerV2_s0 , poolformer_s12
+        if cnn_branch = True, the parameters of the network will increase
         """
 
 

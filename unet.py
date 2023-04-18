@@ -33,7 +33,7 @@ class Unet(object):
         "num_classes"   : 3 + 1,
         "backbone"      : "poolformer_s12",
         "input_shape"   : [224, 224],
-        "mix_type"      : 0,
+        "mix_type"      : 1,
         "cuda"          : True,  # if backbone = efficientFormerV2, cuda should be False
     }
 
