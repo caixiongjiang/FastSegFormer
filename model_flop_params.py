@@ -19,7 +19,7 @@ from nets.PIDNet.pidnet import get_pred_model
 device = torch.device("cpu")
 #input_shape of model,batch_size=1
 
-# net = ENet(4)
+# net = ENet(4) # if it is wrong, please annotate "if torch.cuda.is_available(): extras = extras.cuda(0)" in enet.py
 # net = FANet(4, backbone='resnet18')
 # net = FANet(4, backbone='resnet34')
 # net = FastSCNN(num_classes=4)
