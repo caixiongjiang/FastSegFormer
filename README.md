@@ -1,5 +1,3 @@
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
 ## FastSegFormer: A knowledge distillation-based method for real-time semantic segmentation of surface defects in navel oranges
 
 This is the official repository for our work: FastSegFormer([PDF]())
