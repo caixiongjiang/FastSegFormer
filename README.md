@@ -29,7 +29,7 @@ network feature maps are different:the teacher network's feature maps are down-s
  are convolved point-by-point to increase the number of channels)
 ![](Images/Knowledge%20Distillation.png)
 
-P&KL loss:
+**P&KL loss**:
 
 $$
 L_{logits}(\text{S}) = \frac{1}{W_{s}\times H_{s}}(k_1t^2 \sum_{i \in R}\text{KL}(q_i^s, q_i^t) + (1 - k_1)\sum_{i \in R}\text{MSE}(p_i^s, p_i^t))
@@ -42,7 +42,7 @@ output from the complex network T, $\text{MSE}(\cdot)$ represents the mean squar
 $R=\{1,2,..., W_s\times H_s\}$ represents all pixels, and $t$ represents the temperature coefficient. In this experiment, 
 $t=2$, $k_1=0.5$.
 
-NFD loss:
+**NFD loss**:
 
 $$
 L_{n}^{NFD} = \sum_{i=1}^n \frac{1}{W_s\times H_s} L_2(\text{Normal}(F_{i}^t), \text{Normal}(F_{i}^s))
@@ -76,8 +76,8 @@ $u$ and $\sigma$ represent the mean and standard deviation of the features.
 
 * FastSegFormer after fine-tuning and knowledge distillation:
 
-| Model           |    Input size    | mIoU  |  mPA   | params | GFLOPs | RTX3060(FPS) | RTX3050Ti(FPS) |     ckpt     |
-|:----------------|:----------------:|:-----:|:------:|:------:|:------:|:------------:|:--------------:|:------------:|
-| FastSegFormer-E | $224\times 224$  | 88.78 | 93.33  | 5.01M  |  0.80  |      61      |       -        | [download]() |
-| FastSegFormer-P | $224\times 224$  | 89.33 | 93.33  | 14.87M |  2.70  |     104      |       -        | [download]() |
+|      Model       |    Input size    | mIoU  |  mPA   | params | GFLOPs | RTX3060(FPS) | RTX3050Ti(FPS) |     ckpt     |
+|:----------------:|:----------------:|:-----:|:------:|:------:|:------:|:------------:|:--------------:|:------------:|
+| FastSegFormer-E  | $224\times 224$  | 88.78 | 93.33  | 5.01M  |  0.80  |      61      |       -        | [download]() |
+| FastSegFormer-P  | $224\times 224$  | 89.33 | 93.33  | 14.87M |  2.70  |     104      |       -        | [download]() |
 
