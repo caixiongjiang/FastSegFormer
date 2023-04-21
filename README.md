@@ -39,12 +39,14 @@ network feature maps are different:the teacher network's feature maps are down-s
 
 * Teacher network:
 
-|      Model       | mIoU  |  mPA  | params | GFLOPs |     ckpt      |
-|:----------------:|:-----:|:-----:|:------:|:------:|:-------------:|
-| swin-T-Att-UNet  | 90.53 | 94.65 | 49.21M | 77.80  | [download]()  |
+|      Model       |   Input size    | mIoU  |  mPA  | params | GFLOPs |     ckpt     |
+|:----------------:|:---------------:|:-----:|:-----:|:------:|:------:|:------------:|
+| swin-T-Att-UNet  | $512\times 512$ | 90.53 | 94.65 | 49.21M | 77.80  | [download]() |
+
 * FastSegFormer after fine-tuning and knowledge distillation:
 
-| Model           | mIoU |mPA|params|GFLOPs| RTX3060(FPS) | RTX3050Ti(FPS) |ckpt|
-|:----------------|:-----|:-----|:-----|:-----|:-------------|:---------------|:-----|
-| FastSegFormer-E |||||||      |
+| Model           |    Input size    | mIoU  |  mPA   | params | GFLOPs | RTX3060(FPS) | RTX3050Ti(FPS) |     ckpt     |
+|:----------------|:----------------:|:-----:|:------:|:------:|:------:|:------------:|:--------------:|:------------:|
+| FastSegFormer-E | $224\times 224$  | 88.78 | 93.33  | 5.01M  |  0.80  |      61      |       -        | [download]() |
+| FastSegFormer-P | $224\times 224$  | 89.33 | 93.33  | 14.87M |  2.70  |     104      |       -        | [download]() |
 
