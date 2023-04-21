@@ -9,13 +9,13 @@ This is the official repository for our work: FastSegFormer([PDF]())
 * Performance of different models on navel orange dataset (test set) against their inference speed:
 
 <p align="center">
-<img src="Images/fps_mIoU_figure.png" alt="Image 1" width="600"/>
+<img src="Images/fps_mIoU_figure.png" alt="Image 1" width="550"/>
 </p>
 
 * Performance of different models on navel orange dataset (test set) against their parameters:
 
 <p align="center">
-<img src="Images/params_mIoU_figure.png" alt="Image 2" width="600"/>
+<img src="Images/params_mIoU_figure.png" alt="Image 2" width="550"/>
 </p>
 
 ### Demos
