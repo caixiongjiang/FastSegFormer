@@ -4,7 +4,10 @@ This is the official repository for our work: FastSegFormer([PDF]())
 
 ### Highlights
 
-![]()
+<p float="center">
+<img src="Images/fps_mIoU_figure.png" alt="Image 1" width="300"/>
+<img src="Images/params_mIoU_figure.png" alt="Image 2" width="300"/>
+</p>
 
 * ds 
 * ds 
@@ -64,20 +67,24 @@ $u$ and $\sigma$ represent the mean and standard deviation of the features.
 
 * Pretrained backbone network:
 
-|   Dataset    |    Input size    | PoolFormer-S12  | EfficientFormerV2-S0  |
-|:------------:|:----------------:|:---------------:|:---------------------:|
-| ImageNet-1K  | $224\times 224$  |  [download]()   |     [download]()      |
+|   Dataset    |    Input size    | PoolFormer-S12 | EfficientFormerV2-S0 |
+|:------------:|:----------------:|:--------------:|:--------------------:|
+| ImageNet-1K  | $224\times 224$  |  [download]()  |     [download]()     |
 
 * Teacher network:
 
-|      Model       |   Input size    | mIoU  |  mPA  | params | GFLOPs |     ckpt     |
-|:----------------:|:---------------:|:-----:|:-----:|:------:|:------:|:------------:|
-| swin-T-Att-UNet  | $512\times 512$ | 90.53 | 94.65 | 49.21M | 77.80  | [download]() |
+|   Dataset    |      Model      |   Input size    | mIoU(%) | mPA(%) | params | GFLOPs |     ckpt     |
+|:------------:|:---------------:|:---------------:|:-------:|:------:|:------:|:------:|:------------:|
+| Orange navel | swin-T-Att-UNet | $512\times 512$ |  90.53  | 94.65  | 49.21M | 77.80  | [download]() |
 
 * FastSegFormer after fine-tuning and knowledge distillation:
 
-|      Model       |    Input size    | mIoU  |  mPA   | params | GFLOPs | RTX3060(FPS) | RTX3050Ti(FPS) |     ckpt     |
-|:----------------:|:----------------:|:-----:|:------:|:------:|:------:|:------------:|:--------------:|:------------:|
-| FastSegFormer-E  | $224\times 224$  | 88.78 | 93.33  | 5.01M  |  0.80  |      61      |       -        | [download]() |
-| FastSegFormer-P  | $224\times 224$  | 89.33 | 93.33  | 14.87M |  2.70  |     104      |       -        | [download]() |
+|      Model       |    Input size    | mIoU(%) | mPA(%) | params | GFLOPs | RTX3060(FPS) | RTX3050Ti(FPS) |     ckpt     |
+|:----------------:|:----------------:|:-------:|:------:|:------:|:------:|:------------:|:--------------:|:------------:|
+| FastSegFormer-E  | $224\times 224$  |  88.78  | 93.33  | 5.01M  |  0.80  |      61      |       -        | [download]() |
+| FastSegFormer-P  | $224\times 224$  |  89.33  | 93.33  | 14.87M |  2.70  |     104      |       -        | [download]() |
+
+### Ablation study
+
+
 
