@@ -35,15 +35,15 @@ network feature maps are different:the teacher network's feature maps are down-s
 
 * Pretrained backbone network:
 
-| Model(ImageNet-1K) | Input size      | PoolFormer-S12 | EfficientFormerV2-S0 |
-|:-------------------|:----------------|:---------------|:---------------------|
-| Link               | $224\times 224$ | [download]()   | [download]()         |
+|   Dataset    |    Input size    | PoolFormer-S12  | EfficientFormerV2-S0  |
+|:------------:|:----------------:|:---------------:|:---------------------:|
+| ImageNet-1K  | $224\times 224$  |  [download]()   |     [download]()      |
 
 * Teacher network:
 
-| Model           | mIoU |mPA|params| GFLOPs| ckpt         |
-|:----------------|:-----|:-----|:-----|:------|:-------------|
-| swin-T-Att-UNet |90.53|94.65|49.21M|77.80| [download]() |
+|      Model       | mIoU  |  mPA  | params | GFLOPs |     ckpt      |
+|:----------------:|:-----:|:-----:|:------:|:------:|:-------------:|
+| swin-T-Att-UNet  | 90.53 | 94.65 | 49.21M | 77.80  | [download]()  |
 * FastSegFormer after fine-tuning and knowledge distillation:
 
 | Model           | mIoU |mPA|params|GFLOPs| RTX3060(FPS) | RTX3050Ti(FPS) |ckpt|
