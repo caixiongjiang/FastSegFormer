@@ -4,17 +4,21 @@ This is the official repository for our work: FastSegFormer([PDF]())
 
 ### Highlights
 
+---
+
 <p align="center">
-<img src="Images/fps_mIoU_figure.png" alt="Image 1"/>
+<img src="Images/fps_mIoU_figure.png" alt="Image 1" width="500"/>
 Performance of different models on navel orange dataset (test set) against their inference speed.
 </p>
 
 <p align="center">
-<img src="Images/params_mIoU_figure.png" alt="Image 2"/>
+<img src="Images/params_mIoU_figure.png" alt="Image 2" width="500"/>
 Performance of different models on navel orange dataset (test set) against their parameters.
 </p>
 
 ### Demos
+
+---
 
 A demo of the segmentation performance of our proposed FastSegFormer:Original image(left) and prediction of FastSegFormer-E(middle) and
 FastSegFormer-P(right).
@@ -23,6 +27,8 @@ FastSegFormer-P(right).
 
 
 ### Overview
+
+---
 
 * An overview of the architecture of our proposed FastSegFormer-P. The architecture of FastSegFormer-E is derived from FastSegFormer-P
 replacing the backbone network EfficientFormerV2-S0.
@@ -66,6 +72,8 @@ $u$ and $\sigma$ represent the mean and standard deviation of the features.
 
 ### Models
 
+---
+
 * Pretrained backbone network:
 
 |   Dataset    |    Input size    | PoolFormer-S12 | EfficientFormerV2-S0 |
@@ -85,7 +93,11 @@ $u$ and $\sigma$ represent the mean and standard deviation of the features.
 | FastSegFormer-E  | $224\times 224$  |  88.78  | 93.33  | 5.01M  |  0.80  |      61      |       -        | [download]() |
 | FastSegFormer-P  | $224\times 224$  |  89.33  | 93.33  | 14.87M |  2.70  |     104      |       -        | [download]() |
 
-### Ablation study
+### Environment
+
+---
+
+This implementation is based on [unet-pytorch](https://github.com/bubbliiiing/unet-pytorch).
 
 
 
