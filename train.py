@@ -69,7 +69,7 @@ if __name__ == "__main__":
     eval_flag           = True
     eval_period         = 5
 
-    VOCdevkit_path  = 'Orange_Navel_1.5k'
+    VOCdevkit_path  = 'data/Orange_Navel_1.5k'
     dice_loss       = False
     focal_loss      = False
     cls_weights     = np.ones([num_classes], np.float32)

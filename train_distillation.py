@@ -66,7 +66,7 @@ if __name__ == "__main__":
     eval_flag = True
     eval_period = 5
 
-    VOCdevkit_path = 'Orange_Navel_1.5k'
+    VOCdevkit_path = 'data/Orange_Navel_1.5k'
 
     NFD_loss = True
     KL_pixel_loss = True
