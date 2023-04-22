@@ -53,7 +53,7 @@ if __name__ == "__main__":
     Freeze_batch_size   = 32
     UnFreeze_Epoch      = 1000
     Unfreeze_batch_size = 32
-    Freeze_Train        = False
+    Freeze_Train        = True
 
     Init_lr             = 1e-4
     Min_lr              = Init_lr * 0.01
