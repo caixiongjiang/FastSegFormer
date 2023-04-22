@@ -115,8 +115,8 @@ with other lightweight models.
 * The Acc.(mIoU) of FastSegFormer models with different network structure(PPM, MSP and Image reconstruction branch) on validation set:
 
 <p align="left">
-<img src="Images/miou_vs_epoch_FastSegFormer-E.png" alt="Image 1" width="550"/>
-<img src="Images/miou_vs_epoch_FastSegFormer-P.png" alt="Image 2" width="550"/>
+<img src="Images/miou_vs_epoch_FastSegFormer-E.png" alt="Image 1" width="650"/>
+<img src="Images/miou_vs_epoch_FastSegFormer-P.png" alt="Image 2" width="650"/>
 </p>
 
 * Knowledge distillation(KD) and fine-tuning(†):
