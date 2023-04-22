@@ -6,7 +6,7 @@ This is the official repository for our work: FastSegFormer([PDF]())
 
 ---
 
-* Performance of different models on navel orange dataset (test set) against their inference speed:
+* Performance of different models on navel orange dataset (test set) against their detection speed on RTX3050Ti:
 
 <p align="center">
 <img src="Images/fps_mIoU_figure.png" alt="Image 1" width="550"/>
@@ -17,6 +17,13 @@ This is the official repository for our work: FastSegFormer([PDF]())
 <p align="center">
 <img src="Images/params_mIoU_figure.png" alt="Image 2" width="550"/>
 </p>
+
+
+### Updates
+
+---
+
+- [ ] The training and testing codes are available here.()
 
 ### Demos
 
@@ -78,15 +85,19 @@ $u$ and $\sigma$ represent the mean and standard deviation of the features.
 
 * Pretrained backbone network:
 
-|   Dataset    |    Input size    | PoolFormer-S12 | EfficientFormerV2-S0 |
-|:------------:|:----------------:|:--------------:|:--------------------:|
-| ImageNet-1K  | $224\times 224$  |  [download]()  |     [download]()     |
+|  Model(ImageNet-1K)  |    Input size    |     ckpt     |
+|:--------------------:|:----------------:|:------------:|
+| EfficientFormerV2-S0 | $224\times 224$  | [download]() |
+| EfficientFormerV2-S1 | $224\times 224$  | [download]() |
+|    PoolFormer-S12    | $224\times 224$  | [download]() |
+|    PoolFormer-S24    | $224\times 224$  | [download]() |
+|    PoolFormer-S36    | $224\times 224$  | [download]() |
 
 * Teacher network:
 
 |   Dataset    |      Model      |   Input size    | mIoU(%) | mPA(%) | params | GFLOPs |     ckpt     |
 |:------------:|:---------------:|:---------------:|:-------:|:------:|:------:|:------:|:------------:|
-| Orange navel | swin-T-Att-UNet | $512\times 512$ |  90.53  | 94.65  | 49.21M | 77.80  | [download]() |
+| Orange navel | Swin-T-Att-UNet | $512\times 512$ |  90.53  | 94.65  | 49.21M | 77.80  | [download]() |
 
 * FastSegFormer after fine-tuning and knowledge distillation:
 
@@ -99,7 +110,95 @@ $u$ and $\sigma$ represent the mean and standard deviation of the features.
 
 ---
 
-This implementation is based on [unet-pytorch](https://github.com/bubbliiiing/unet-pytorch).
+This implementation is based on [unet-pytorch](https://github.com/bubbliiiing/unet-pytorch). The detection speed(FPS)
+is tested on single RTX3060 and on single RTX3050Ti.
 
+* Hardware Configuration: A graphics card with 12G graphics memory is a must, as our knowledge distillation
+method will take up a lot of video memory during training.(When the batch size of knowledge distillation is 6,
+ the graphics memory occupies 11.8G) Of course you can also skip the distillation method, which will take up a
+very low amount of graphics memory.
+* Basic environment configuration: Our code currently only supports single card training. Our training environment
+:Python 3.9, Pytorch 1.12.1, CUDA 10.2.
 
+### Usage
 
+#### Prepare the dataset
+
+We only provide 1448 navel orange defect dataset in VOC format, if you want to extend the dataset, you can use
+[Imgaug for segmentation maps and masks](https://imgaug.readthedocs.io/en/latest/source/examples_segmentation_maps.html) for data enhancement.
+
+* Download the [Orange_Navel_1.5k]() dataset and unzip them in `data/Orange_Navel_1.5k` dir.
+* The dataset we provide has been randomly partitioned according to the training validation test 6:2:2. You
+can re-randomize or re-randomize after changing the ratio using 
+[voc_annotation.py](https://github.com/caixiongjiang/FastSegFormer/blob/main/voc_annotation.py).
+
+#### Train
+
+* Download the source code zip or clone the project:
+```shell
+$ git clone https://github.com/caixiongjiang/FastSegFormer
+```
+* Go to the root directory of project and download the required packages:
+```shell
+$ conda activate 'your anaconda environment'
+$ pip install -r requirements.txt
+```
+
+* Download the ImageNet pretrained models and put them into `model_data` dir.
+
+Thanks to two repositories [snap-research/EfficientFormer](https://github.com/snap-research/EfficientFormer) and 
+[sail-sg/poolformer](https://github.com/sail-sg/poolformer), We provide the pretraining weights of EfficientFormerV2
+and PoolFormer on ImageNet-1K.
+
+* modify the parameters of `train.py`. For example, train FastSegFormer-P(fin-tuning):
+```python
+backbone    = "poolformer_s12"
+pretrained  = False
+model_path  = "model_data/poolformer_s12.pth"
+input_shape = [224, 224]
+```
+* train the FastSegFormer-P model on Orange_Navel_1.5k with batch size of 32.
+```shell
+python train.py
+```
+
+#### Evaluation of segmentation
+* For example, download the fine-tuning models FastSegFormer-P for Orange_Navel_1.5k and put them into 
+`logs/FastSegFormer-P` dir.
+* modify the parameters of `unet.py`. For example, evaluate FastSegFormer-P(fin-tuning):
+```python
+_defaults = {
+        "model_path"    : 'logs/FastSegFormer-P.pth',
+        "num_classes"   : 3 + 1,
+        "backbone"      : "poolformer_s12",
+        "input_shape"   : [224, 224],
+        "mix_type"      : 1,
+        "cuda"          : True,  # if backbone = efficientFormerV2, cuda should be False
+    }
+
+def generate(self, onnx=False):
+    self.net = FastSegFormer(num_classes=self.num_classes, pretrained=False, backbone=self.backbone, Pyramid="multiscale", cnn_branch=True)
+```
+* Evaluate the test set on Navel_Orange_1.5k and the result will be in the `miou_out` dir.
+```shell
+python get_miou.py
+```
+
+#### predict
+Same as the evaluation session, firstly modify the parameters of `unet.py`, and then run `predict.py`:
+```shell
+python predict.py
+# Generate tips and input the image dir 
+Input image filename:'your image dir'
+```
+
+#### Evaluation of deployment
+* Detection speed(FPS):
+```shell
+python speeding.py
+```
+
+* Params and GFLOPs:
+```shell
+python model_flop_params.py
+```
