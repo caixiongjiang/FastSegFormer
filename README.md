@@ -202,3 +202,19 @@ python speeding.py
 ```shell
 python model_flop_params.py
 ```
+
+### Citation
+
+---
+if you this implementation is useful for your work, please cite our paper:
+```bib
+
+```
+
+### Acknowledgement
+
+---
+* This implementation is based on [unet-pytorch](https://github.com/bubbliiiing/unet-pytorch).
+* FPS measurement code is borrowed from [FANet](https://github.com/feinanshan/FANet).
+* The backbone network checkpoints is download from [EfficientFormer](https://github.com/snap-research/EfficientFormer) and 
+[poolformer](https://github.com/sail-sg/poolformer).
