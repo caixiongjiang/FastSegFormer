@@ -1,0 +1,1 @@
+Pretrained backbone networks' weights and the teacher network's weight with input $512\times 512$.
