@@ -95,16 +95,42 @@ $u$ and $\sigma$ represent the mean and standard deviation of the features.
 
 * Teacher network:
 
-|   Dataset    |      Model      |   Input size    | mIoU(%) | mPA(%) | params | GFLOPs |     ckpt     |
+|   Dataset    |      Model      |   Input size    | mIoU(%) | mPA(%) | Params | GFLOPs |     ckpt     |
 |:------------:|:---------------:|:---------------:|:-------:|:------:|:------:|:------:|:------------:|
 | Orange navel | Swin-T-Att-UNet | $512\times 512$ |  90.53  | 94.65  | 49.21M | 77.80  | [download]() |
 
 * FastSegFormer after fine-tuning and knowledge distillation:
 
-|      Model       |    Input size    | mIoU(%) | mPA(%) | params | GFLOPs | RTX3060(FPS) | RTX3050Ti(FPS) |     ckpt     |
+|      Model       |    Input size    | mIoU(%) | mPA(%) | Params | GFLOPs | RTX3060(FPS) | RTX3050Ti(FPS) |     ckpt     |
 |:----------------:|:----------------:|:-------:|:------:|:------:|:------:|:------------:|:--------------:|:------------:|
 | FastSegFormer-E  | $224\times 224$  |  88.78  | 93.33  | 5.01M  |  0.80  |      61      |       -        | [download]() |
 | FastSegFormer-P  | $224\times 224$  |  89.33  | 93.33  | 14.87M |  2.70  |     104      |       -        | [download]() |
+
+
+### Ablation study
+
+You can see all results and process of our experiment in `logs` dir, which include ablation study and comparison 
+with other lightweight models.
+
+* The Acc.(mIoU) of FastSegFormer models with different network structure(PPM, MSP and Image reconstruction branch) on validation set:
+
+<p align="left">
+<img src="Images/miou_vs_epoch_FastSegFormer-E.png" alt="Image 1" width="450"/>
+<img src="Images/miou_vs_epoch_FastSegFormer-P.png" alt="Image 2" width="450"/>
+</p>
+
+* Knowledge distillation(KD) and fine-tuning(†):
+
+|          Model           | mIoU(%) | mPA(%) | mPrecision(%) | Params | GFLOPs |
+|:------------------------:|:-------:|:------:|:-------------:|:------:|:------:|
+|     FastSegFormer-E      |  86.51  | 91.63  |     93.50     |  5.01  |  0.80  |
+|  FastSegFormer-E w/ KD   |  87.24  | 92.20  |     93.82     |  5.01  |  0.80  |
+|     FastSegFormer-E†     |  88.49  | 93.16  |     94.32     |  5.01  |  0.80  |
+| FastSegFormer-E w/o KD † |  88.78  | 93.33  |     94.48     |  5.01  |  0.80  |
+|     FastSegFormer-P      |  84.15  | 89.44  |     92.84     | 14.87  |  2.70  |
+|  FastSegFormer-P w/ KD   |  85.25  | 90.82  |     92.84     | 14.87  |  2.70  |
+|     FastSegFormer-P†     |  88.57  | 93.15  |     94.42     | 14.87  |  2.70  |
+| FastSegFormer-P w/o KD † |  89.33  | 93.78  |     94.68     | 14.87  |  2.70  |
 
 ### Environment
 
