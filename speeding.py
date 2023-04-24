@@ -9,6 +9,7 @@ from nets.FastSegFormer.fast_segformer import FastSegFormer
 from nets.UNet.swinTS_Att_Unet import swinTS_Att_Unet
 from nets.ENet.enet import ENet
 from nets.PIDNet.pidnet import get_pred_model
+from nets.BiseNetV2.bisenetV2 import BiSeNetV2
 
 
 
@@ -86,6 +87,16 @@ if __name__ == "__main__":
 
     Swin_T_Att_UNet = swinTS_Att_Unet(4, backbone='swin_T_224')
     run(Swin_T_Att_UNet, size=(1, 3, 224, 224), name='Swin_T_Att_UNet')
+
+    """
+    For related work:
+    Paper:Real-Time Grading of Defect Apples Using Semantic Segmentation Combination with a Pruned YOLO V4 Network
+    models:BiSeNetV2 + pruned YOLO V4
+    num_classes: defect + stem + background
+    """
+
+    BiSeNetV2 = BiSeNetV2(n_classes=3)
+    run(BiSeNetV2, size=(1, 3, 416, 416), name='Related work: BiSeNetV2(with pruned YOLO V4)')
 
 
 
