@@ -53,7 +53,7 @@ if __name__ == "__main__":
     Unfreeze_batch_size = 6
     Freeze_Train = False
 
-    Init_lr = 1e-4
+    Init_lr = 1e-5
     Min_lr = Init_lr * 0.01
 
     optimizer_type = "adam"
