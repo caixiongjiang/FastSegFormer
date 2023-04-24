@@ -92,6 +92,9 @@ $u$ and $\sigma$ represent the mean and standard deviation of the features.
 |    PoolFormer-S12    | $224\times 224$  | [download]() |
 |    PoolFormer-S24    | $224\times 224$  | [download]() |
 |    PoolFormer-S36    | $224\times 224$  | [download]() |
+|       PIDNet-S       | $224\times 224$  | [download]() |
+|       PIDNet-M       | $224\times 224$  | [download]() |
+|       PIDNet-L       | $224\times 224$  | [download]() |
 
 * Teacher network:
 
@@ -103,8 +106,8 @@ $u$ and $\sigma$ represent the mean and standard deviation of the features.
 
 |      Model       |    Input size    | mIoU(%) | mPA(%) | Params | GFLOPs | RTX3060(FPS) | RTX3050Ti(FPS) |     ckpt     |
 |:----------------:|:----------------:|:-------:|:------:|:------:|:------:|:------------:|:--------------:|:------------:|
-| FastSegFormer-E  | $224\times 224$  |  88.78  | 93.33  | 5.01M  |  0.80  |      61      |       -        | [download]() |
-| FastSegFormer-P  | $224\times 224$  |  89.33  | 93.78  | 14.87M |  2.70  |     104      |       -        | [download]() |
+| FastSegFormer-E  | $224\times 224$  |  88.78  | 93.33  | 5.01M  |  0.80  |      61      |       59       | [download]() |
+| FastSegFormer-P  | $224\times 224$  |  89.33  | 93.78  | 14.87M |  2.70  |     108      |       93       | [download]() |
 
 
 ### Ablation study
@@ -173,9 +176,9 @@ $ pip install -r requirements.txt
 
 * Download the ImageNet pretrained models and put them into `model_data` dir.
 
-Thanks to two repositories [snap-research/EfficientFormer](https://github.com/snap-research/EfficientFormer) and 
-[sail-sg/poolformer](https://github.com/sail-sg/poolformer), We provide the pretraining weights of EfficientFormerV2
-and PoolFormer on ImageNet-1K.
+Thanks to three repositories [EfficientFormer](https://github.com/snap-research/EfficientFormer), 
+[poolformer](https://github.com/sail-sg/poolformer) and [PIDNet](https://github.com/XuJiacong/PIDNet), We provide the pretraining weights of EfficientFormerV2, PoolFormer 
+and PIDNet on ImageNet-1K.
 
 * modify the parameters of `train.py`. For example, train FastSegFormer-P(fin-tuning):
 ```python
@@ -245,5 +248,5 @@ if you this implementation is useful for your work, please cite our paper:
 
 * This implementation is based on [unet-pytorch](https://github.com/bubbliiiing/unet-pytorch).
 * FPS measurement code is borrowed from [FANet](https://github.com/feinanshan/FANet).
-* The backbone network checkpoints is download from [EfficientFormer](https://github.com/snap-research/EfficientFormer) and 
-[poolformer](https://github.com/sail-sg/poolformer).
+* The backbone network checkpoints is download from [EfficientFormer](https://github.com/snap-research/EfficientFormer), 
+[poolformer](https://github.com/sail-sg/poolformer) and [PIDNet](https://github.com/XuJiacong/PIDNet).
