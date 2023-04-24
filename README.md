@@ -95,19 +95,21 @@ $u$ and $\sigma$ represent the mean and standard deviation of the features.
 
 * Teacher network:
 
-|   Dataset    |      Model      |   Input size    | mIoU(%) | mPA(%) | Params | GFLOPs |     ckpt     |
-|:------------:|:---------------:|:---------------:|:-------:|:------:|:------:|:------:|:------------:|
-| Orange navel | Swin-T-Att-UNet | $512\times 512$ |  90.53  | 94.65  | 49.21M | 77.80  | [download]() |
+|      Model      |   Input size    | mIoU(%) | mPA(%) | Params | GFLOPs |     ckpt     |
+|:---------------:|:---------------:|:-------:|:------:|:------:|:------:|:------------:|
+| Swin-T-Att-UNet | $512\times 512$ |  90.53  | 94.65  | 49.21M | 77.80  | [download]() |
 
 * FastSegFormer after fine-tuning and knowledge distillation:
 
 |      Model       |    Input size    | mIoU(%) | mPA(%) | Params | GFLOPs | RTX3060(FPS) | RTX3050Ti(FPS) |     ckpt     |
 |:----------------:|:----------------:|:-------:|:------:|:------:|:------:|:------------:|:--------------:|:------------:|
 | FastSegFormer-E  | $224\times 224$  |  88.78  | 93.33  | 5.01M  |  0.80  |      61      |       -        | [download]() |
-| FastSegFormer-P  | $224\times 224$  |  89.33  | 93.33  | 14.87M |  2.70  |     104      |       -        | [download]() |
+| FastSegFormer-P  | $224\times 224$  |  89.33  | 93.78  | 14.87M |  2.70  |     104      |       -        | [download]() |
 
 
 ### Ablation study
+
+---
 
 You can see all results and process of our experiment in `logs` dir, which include ablation study and comparison 
 with other lightweight models.
@@ -121,16 +123,16 @@ with other lightweight models.
 
 * Knowledge distillation(KD) and fine-tuning(†):
 
-|          Model           | mIoU(%) | mPA(%) | mPrecision(%) | Params | GFLOPs |
-|:------------------------:|:-------:|:------:|:-------------:|:------:|:------:|
-|     FastSegFormer-E      |  86.51  | 91.63  |     93.50     |  5.01  |  0.80  |
-|  FastSegFormer-E w/ KD   |  87.24  | 92.20  |     93.82     |  5.01  |  0.80  |
-|     FastSegFormer-E†     |  88.49  | 93.16  |     94.32     |  5.01  |  0.80  |
-| FastSegFormer-E w/o KD † |  88.78  | 93.33  |     94.48     |  5.01  |  0.80  |
-|     FastSegFormer-P      |  84.15  | 89.44  |     92.84     | 14.87  |  2.70  |
-|  FastSegFormer-P w/ KD   |  85.25  | 90.82  |     92.84     | 14.87  |  2.70  |
-|     FastSegFormer-P†     |  88.57  | 93.15  |     94.42     | 14.87  |  2.70  |
-| FastSegFormer-P w/o KD † |  89.33  | 93.78  |     94.68     | 14.87  |  2.70  |
+|          Model          | mIoU(%) | mPA(%) | mPrecision(%) | Params | GFLOPs |
+|:-----------------------:|:-------:|:------:|:-------------:|:------:|:------:|
+|     FastSegFormer-E     |  86.51  | 91.63  |     93.50     |  5.01  |  0.80  |
+|  FastSegFormer-E w/ KD  |  87.24  | 92.20  |     93.82     |  5.01  |  0.80  |
+|    FastSegFormer-E†     |  88.49  | 93.16  |     94.32     |  5.01  |  0.80  |
+| FastSegFormer-E w/ KD † |  88.78  | 93.33  |     94.48     |  5.01  |  0.80  |
+|     FastSegFormer-P     |  84.15  | 89.44  |     92.84     | 14.87  |  2.70  |
+|  FastSegFormer-P w/ KD  |  85.43  | 90.64  |     93.20     | 14.87  |  2.70  |
+|    FastSegFormer-P†     |  88.57  | 93.15  |     94.42     | 14.87  |  2.70  |
+| FastSegFormer-P w/ KD † |  89.33  | 93.78  |     94.68     | 14.87  |  2.70  |
 
 ### Environment
 
@@ -155,8 +157,7 @@ We only provide 1448 navel orange defect dataset in VOC format, if you want to e
 
 * Download the [Orange_Navel_1.5k]() dataset and unzip them in `data/Orange_Navel_1.5k` dir.
 * The dataset we provide has been randomly partitioned according to the training validation test 6:2:2. You
-can re-randomize or re-randomize after changing the ratio using 
-[voc_annotation.py](https://github.com/caixiongjiang/FastSegFormer/blob/main/voc_annotation.py).
+can re-randomize or re-randomize after changing the ratio using `voc_annotation.py`.
 
 #### Train
 
@@ -232,6 +233,7 @@ python model_flop_params.py
 ### Citation
 
 ---
+
 if you this implementation is useful for your work, please cite our paper:
 ```bib
 
@@ -240,6 +242,7 @@ if you this implementation is useful for your work, please cite our paper:
 ### Acknowledgement
 
 ---
+
 * This implementation is based on [unet-pytorch](https://github.com/bubbliiiing/unet-pytorch).
 * FPS measurement code is borrowed from [FANet](https://github.com/feinanshan/FANet).
 * The backbone network checkpoints is download from [EfficientFormer](https://github.com/snap-research/EfficientFormer) and 
