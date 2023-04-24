@@ -1,0 +1,57 @@
+=======================================
+Model Name: ENet
+FPS: 71.466442
+=======================================
+Model Name: FANet-18
+FPS: 168.233794
+=======================================
+Model Name: FANet-34
+FPS: 120.076931
+=======================================
+Model Name: Fast-SCNN
+FPS: 189.183664
+=======================================
+Model Name: SwiftNetRN18
+FPS: 242.761891
+=======================================
+Model Name: BiSeNet
+FPS: 193.940829
+=======================================
+Model Name: PIDNet-S
+FPS: 84.471263
+=======================================
+Model Name: PIDNet-M
+FPS: 82.524638
+=======================================
+Model Name: PIDNet-L
+FPS: 69.140488
+=======================================
+Model Name: FastSegFormer_EF_P
+FPS: 64.856025
+=======================================
+Model Name: FastSegFormer_EF_M
+FPS: 62.608925
+=======================================
+Model Name: FastSegFormer_EF_M_H
+FPS: 61.475126
+=======================================
+Model Name: FastSegFormer_PF_P
+FPS: 117.823055
+=======================================
+Model Name: FastSegFormer_PF_M
+FPS: 112.407295
+C:\Users\nau_c\.conda\envs\pytorch\lib\site-packages\torch\functional.py:478: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  C:\cb\pytorch_1000000000000\work\aten\src\ATen\native\TensorShape.cpp:2895.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+=======================================
+Model Name: FastSegFormer_PF_M_H
+FPS: 107.580296
+=======================================
+Model Name: Swin_T_Att_UNet
+FPS: 57.281354
+=======================================
+Model Name: Related work: BiSeNetV2(with pruned YOLO V4)
+FPS: 115.782456
+=======================================
+Note:
+In the paper, a single RTX 3060 GPU is adopted for evaluation.
+=======================================
