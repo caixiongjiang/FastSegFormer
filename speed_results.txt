@@ -55,3 +55,65 @@ FPS: 115.782456
 Note:
 In the paper, a single RTX 3060 GPU is adopted for evaluation.
 =======================================
+
+
+
+
+
+=======================================
+Model Name: ENet
+FPS: 66.510345
+=======================================
+Model Name: FANet-18
+FPS: 155.999850
+=======================================
+Model Name: FANet-34
+FPS: 112.090940
+=======================================
+Model Name: Fast-SCNN
+FPS: 168.429304
+=======================================
+Model Name: SwiftNetRN18
+FPS: 227.454983
+=======================================
+Model Name: BiSeNet
+FPS: 193.900572
+=======================================
+Model Name: PIDNet-S
+FPS: 75.084791
+=======================================
+Model Name: PIDNet-M
+FPS: 77.862035
+=======================================
+Model Name: PIDNet-L
+FPS: 62.618412
+=======================================
+Model Name: FastSegFormer_EF_P
+FPS: 58.090359
+=======================================
+Model Name: FastSegFormer_EF_M
+FPS: 59.693040
+=======================================
+Model Name: FastSegFormer_EF_M_H
+FPS: 59.100334
+=======================================
+Model Name: FastSegFormer_PF_P
+FPS: 97.157504
+=======================================
+Model Name: FastSegFormer_PF_M
+FPS: 101.481513
+=======================================
+Model Name: FastSegFormer_PF_M_H
+FPS: 92.538096
+D:\apps\anaconda\envs\pytorch\lib\site-packages\torch\functional.py:478: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  C:\cb\pytorch_1000000000000\work\aten\src\ATen\native\TensorShape.cpp:2895.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+=======================================
+Model Name: Swin_T_Att_UNet
+FPS: 54.110800
+=======================================
+Model Name: Related work: BiSeNetV2(with pruned YOLO V4)
+FPS: 106.310438
+=======================================
+Note:
+In the paper, a single RTX 3050Ti GPU is adopted for evaluation.
+=======================================
