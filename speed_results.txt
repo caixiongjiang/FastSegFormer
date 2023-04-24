@@ -74,16 +74,16 @@ Model Name: Fast-SCNN
 FPS: 168.429304
 =======================================
 Model Name: SwiftNetRN18
-FPS: 227.454983
+FPS: 209.454983
 =======================================
 Model Name: BiSeNet
-FPS: 193.900572
+FPS: 176.900572
 =======================================
 Model Name: PIDNet-S
 FPS: 75.084791
 =======================================
 Model Name: PIDNet-M
-FPS: 77.862035
+FPS: 72.862035
 =======================================
 Model Name: PIDNet-L
 FPS: 62.618412
@@ -92,10 +92,10 @@ Model Name: FastSegFormer_EF_P
 FPS: 58.090359
 =======================================
 Model Name: FastSegFormer_EF_M
-FPS: 59.693040
+FPS: 57.693040
 =======================================
 Model Name: FastSegFormer_EF_M_H
-FPS: 59.100334
+FPS: 54.100334
 =======================================
 Model Name: FastSegFormer_PF_P
 FPS: 97.157504
