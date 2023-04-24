@@ -228,7 +228,7 @@ def resnet18(pretrained=True, **kwargs):
     """
     model = ResNet(BasicBlock, [2, 2, 2, 2], **kwargs)
     if pretrained:
-        model.load_state_dict(model_zoo.load_url(model_urls['resnet18'], model_dir="../../../model_data"), strict=False)
+        model.load_state_dict(model_zoo.load_url(model_urls['resnet18'], model_dir="./model_data"), strict=False)
     return model
 
 
@@ -239,7 +239,7 @@ def resnet34(pretrained=True, **kwargs):
     """
     model = ResNet(BasicBlock, [3, 4, 6, 3], **kwargs)
     if pretrained:
-        model.load_state_dict(model_zoo.load_url(model_urls['resnet34'], model_dir="../../../model_data"), strict=False)
+        model.load_state_dict(model_zoo.load_url(model_urls['resnet34'], model_dir="./model_data"), strict=False)
     return model
 
 
@@ -250,7 +250,7 @@ def resnet50(pretrained=True, **kwargs):
     """
     model = ResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
     if pretrained:
-        model.load_state_dict(model_zoo.load_url(model_urls['resnet50'], model_dir="../../../model_data"), strict=False)
+        model.load_state_dict(model_zoo.load_url(model_urls['resnet50'], model_dir="./model_data"), strict=False)
     return model
 
 
@@ -261,7 +261,7 @@ def resnet101(pretrained=True, **kwargs):
     """
     model = ResNet(Bottleneck, [3, 4, 23, 3], **kwargs)
     if pretrained:
-        model.load_state_dict(model_zoo.load_url(model_urls['resnet101'], model_dir="../../../model_data"), strict=False)
+        model.load_state_dict(model_zoo.load_url(model_urls['resnet101'], model_dir="./model_data"), strict=False)
     return model
 
 
@@ -272,5 +272,5 @@ def resnet152(pretrained=True, **kwargs):
     """
     model = ResNet(Bottleneck, [3, 8, 36, 3], **kwargs)
     if pretrained:
-        model.load_state_dict(model_zoo.load_url(model_urls['resnet152'], model_dir="../../../model_data"), strict=False)
+        model.load_state_dict(model_zoo.load_url(model_urls['resnet152'], model_dir="./model_data"), strict=False)
     return model

@@ -142,35 +142,35 @@ class ResNet(nn.Module):
 def Resnet18(pretrained=True, norm_layer=None, **kwargs):
     model = ResNet(BasicBlock, [2, 2, 2, 2],[2, 2, 2, 2], norm_layer=norm_layer)
     if pretrained:
-        model.init_weight(model_zoo.load_url(model_urls['resnet18'], model_dir="../../model_data"))
+        model.init_weight(model_zoo.load_url(model_urls['resnet18'], model_dir="./model_data"))
     return model
 
 
 def Resnet34(pretrained=True, norm_layer=None, **kwargs):
     model = ResNet(BasicBlock, [3, 4, 6, 3],[2, 2, 2, 2], norm_layer=norm_layer)
     if pretrained:
-        model.init_weight(model_zoo.load_url(model_urls['resnet34'], model_dir="../../model_data"))
+        model.init_weight(model_zoo.load_url(model_urls['resnet34'], model_dir="./model_data"))
     return model
 
 
 def Resnet50(pretrained=True, norm_layer=None, **kwargs):
     model = ResNet(Bottleneck, [3, 4, 6, 3],[2, 2, 2, 2], norm_layer=norm_layer)
     if pretrained:
-        model.init_weight(model_zoo.load_url(model_urls['resnet50'], model_dir="../../model_data"))
+        model.init_weight(model_zoo.load_url(model_urls['resnet50'], model_dir="./model_data"))
     return model
 
 
 def Resnet101(pretrained=True, norm_layer=None, **kwargs):
     model = ResNet(Bottleneck, [3, 4, 23, 3],[2, 2, 2, 2], norm_layer=norm_layer)
     if pretrained:
-        model.init_weight(model_zoo.load_url(model_urls['resnet101'], model_dir="../../model_data"))
+        model.init_weight(model_zoo.load_url(model_urls['resnet101'], model_dir="./model_data"))
     return model
 
 
 def Resnet152(pretrained=True, norm_layer=None, **kwargs):
     model = ResNet(Bottleneck, [3, 8, 36, 3],[2, 2, 2, 2], norm_layer=norm_layer)
     if pretrained:
-        model.init_weight(model_zoo.load_url(model_urls['resnet152'], model_dir="../../model_data"))
+        model.init_weight(model_zoo.load_url(model_urls['resnet152'], model_dir="./model_data"))
     return model
 
 
