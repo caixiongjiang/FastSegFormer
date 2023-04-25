@@ -33,13 +33,15 @@ Some demos of the segmentation performance of our proposed FastSegFormer:Origina
 FastSegFormer-P(right). The original image contains enhanced image.
 
 <!-- 3x6 grid of images -->
-<div align="center" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 10px;">
+<div align="center">
   <img src="Images/predict_pngs/img826/img826.jpg" width="200" height="200">
   <img src="Images/predict_pngs/img826/img826.png" width="200" height="200">
   <img src="Images/predict_pngs/img826/FastSegFormer-P-img826.png" width="200" height="200">
+  <br>
   <img src="Images/predict_pngs/img585/img585_enhance_a6.jpg" width="200" height="200">
   <img src="Images/predict_pngs/img585/img585.png" width="200" height="200">
   <img src="Images/predict_pngs/img585/FastSegFormer-P-img585.png" height="200">
+  <br>
   <img src="Images/predict_pngs/img663/img663_enhance_a1.jpg" width="200" height="200">
   <img src="Images/predict_pngs/img663/img663_enhance_a1.png" width="200" height="200">
   <img src="Images/predict_pngs/img663/FastSegFormer-P-img663.png" width="200" height="200">
@@ -116,10 +118,10 @@ $u$ and $\sigma$ represent the mean and standard deviation of the features.
 
 * FastSegFormer after fine-tuning and knowledge distillation:
 
-|      Model       |    Input size    | mIoU(%) | mPA(%) | Params | GFLOPs | RTX3060(FPS) | RTX3050Ti(FPS) |     ckpt     |
-|:----------------:|:----------------:|:-------:|:------:|:------:|:------:|:------------:|:--------------:|:------------:|
-| FastSegFormer-E  | $224\times 224$  |  88.78  | 93.33  | 5.01M  |  0.80  |      61      |       54       | [download]() |
-| FastSegFormer-P  | $224\times 224$  |  89.33  | 93.78  | 14.87M |  2.70  |     108      |       93       | [download]() |
+|      Model       |    Input size    | mIoU(%) | mPA(%) | Params | GFLOPs | RTX3060(FPS) | RTX3050Ti(FPS) |                                                               ckpt                                                                |
+|:----------------:|:----------------:|:-------:|:------:|:------:|:------:|:------------:|:--------------:|:---------------------------------------------------------------------------------------------------------------------------------:|
+| FastSegFormer-E  | $224\times 224$  |  88.78  | 93.33  | 5.01M  |  0.80  |      61      |       54       | [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/FastSegFormer_E_Orange_Navel_4.5k_224x224.pth) |
+| FastSegFormer-P  | $224\times 224$  |  89.33  | 93.78  | 14.87M |  2.70  |     108      |       93       | [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/FastSegFormer_P_Orange_Navel_4.5k_224x224.pth) |
 
 
 ### Ablation study
