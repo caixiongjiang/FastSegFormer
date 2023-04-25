@@ -29,9 +29,21 @@ This is the official repository for our work: FastSegFormer([PDF]())
 
 ---
 
-A demo of the segmentation performance of our proposed FastSegFormer:Original image(left) and prediction of FastSegFormer-E(middle) and
-FastSegFormer-P(right).
+Some demos of the segmentation performance of our proposed FastSegFormer:Original image(left) and Label image(middle) and
+FastSegFormer-P(right). The original image contains enhanced image.
 
+<!-- 3x6 grid of images -->
+<div align="center" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 10px;">
+  <img src="Images/predict_pngs/img826/img826.jpg" width="200" height="200">
+  <img src="Images/predict_pngs/img826/img826.png" width="200" height="200">
+  <img src="Images/predict_pngs/img826/FastSegFormer-P-img826.png" width="200" height="200">
+  <img src="Images/predict_pngs/img585/img585_enhance_a6.jpg" width="200" height="200">
+  <img src="Images/predict_pngs/img585/img585.png" width="200" height="200">
+  <img src="Images/predict_pngs/img585/FastSegFormer-P-img585.png" height="200">
+  <img src="Images/predict_pngs/img663/img663_enhance_a1.jpg" width="200" height="200">
+  <img src="Images/predict_pngs/img663/img663_enhance_a1.png" width="200" height="200">
+  <img src="Images/predict_pngs/img663/FastSegFormer-P-img663.png" width="200" height="200">
+</div>
 
 
 
@@ -85,22 +97,22 @@ $u$ and $\sigma$ represent the mean and standard deviation of the features.
 
 * Pretrained backbone network:
 
-|  Model(ImageNet-1K)  |    Input size    |     ckpt     |
-|:--------------------:|:----------------:|:------------:|
-| EfficientFormerV2-S0 | $224\times 224$  | [download]() |
-| EfficientFormerV2-S1 | $224\times 224$  | [download]() |
-|    PoolFormer-S12    | $224\times 224$  | [download]() |
-|    PoolFormer-S24    | $224\times 224$  | [download]() |
-|    PoolFormer-S36    | $224\times 224$  | [download]() |
-|       PIDNet-S       | $224\times 224$  | [download]() |
-|       PIDNet-M       | $224\times 224$  | [download]() |
-|       PIDNet-L       | $224\times 224$  | [download]() |
+|  Model(ImageNet-1K)  |    Input size    |                                                               ckpt                                                               |
+|:--------------------:|:----------------:|:--------------------------------------------------------------------------------------------------------------------------------:|
+| EfficientFormerV2-S0 | $224\times 224$  | [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/EfficientformerV2_s0_ImageNet_1k_224x224.pth) |
+| EfficientFormerV2-S1 | $224\times 224$  | [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/EfficientformerV2_s1_ImageNet_1k_224x224.pth) |
+|    PoolFormer-S12    | $224\times 224$  |    [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/poolformer_s12_ImageNet_1k_224x224.pth)    |
+|    PoolFormer-S24    | $224\times 224$  |    [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/poolformer_s24_ImageNet_1k_224x224.pth)    |
+|    PoolFormer-S36    | $224\times 224$  |    [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/poolformer_s36_ImageNet_1k_224x224.pth)    |
+|       PIDNet-S       | $224\times 224$  |       [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/PIDNet_L_ImageNet_1k_224x224.pth)       |
+|       PIDNet-M       | $224\times 224$  |       [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/PIDNet_M_ImageNet_1k_224x224.pth)       |
+|       PIDNet-L       | $224\times 224$  |       [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/PIDNet_S_ImageNet_1k_224x224.pth)       |
 
 * Teacher network:
 
-|      Model      |   Input size    | mIoU(%) | mPA(%) | Params | GFLOPs |     ckpt     |
-|:---------------:|:---------------:|:-------:|:------:|:------:|:------:|:------------:|
-| Swin-T-Att-UNet | $512\times 512$ |  90.53  | 94.65  | 49.21M | 77.80  | [download]() |
+|      Model      |   Input size    | mIoU(%) | mPA(%) | Params | GFLOPs |                                                                      ckpt                                                                       |
+|:---------------:|:---------------:|:-------:|:------:|:------:|:------:|:-----------------------------------------------------------------------------------------------------------------------------------------------:|
+| Swin-T-Att-UNet | $512\times 512$ |  90.53  | 94.65  | 49.21M | 77.80  | [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/teacher_Swin_T_Att_Unet_Orange_Navel_4.5k_input_512x512.pth) |
 
 * FastSegFormer after fine-tuning and knowledge distillation:
 
@@ -158,7 +170,7 @@ very low amount of graphics memory.
 We only provide 1448 navel orange defect dataset in VOC format, if you want to extend the dataset, you can use
 [Imgaug for segmentation maps and masks](https://imgaug.readthedocs.io/en/latest/source/examples_segmentation_maps.html) for data enhancement.
 
-* Download the [Orange_Navel_1.5k]() dataset and unzip them in `data/Orange_Navel_1.5k` dir.
+* Download the [Orange_Navel_1.5k](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/Orange_Navel_1.5k.zip) dataset and unzip them in `data/Orange_Navel_1.5k` dir.
 * The dataset we provide has been randomly partitioned according to the training validation test 6:2:2. You
 can re-randomize or re-randomize after changing the ratio using `voc_annotation.py`.
 
@@ -180,17 +192,50 @@ Thanks to three repositories [EfficientFormer](https://github.com/snap-research/
 [poolformer](https://github.com/sail-sg/poolformer) and [PIDNet](https://github.com/XuJiacong/PIDNet), We provide the pretraining weights of EfficientFormerV2, PoolFormer 
 and PIDNet on ImageNet-1K.
 
-* modify the parameters of `train.py`. For example, train FastSegFormer-P(fin-tuning):
+* Modify the parameters of `train.py`. For example, train FastSegFormer-P(fin-tuning):
 ```python
 backbone    = "poolformer_s12"
 pretrained  = False
 model_path  = "model_data/poolformer_s12.pth"
 input_shape = [224, 224]
 ```
-* train the FastSegFormer-P model on Orange_Navel_1.5k with batch size of 32.
+* Train the FastSegFormer-P model on Orange_Navel_1.5k with batch size of 32.
 ```shell
 python train.py
 ```
+
+#### Knowledge distillation(KD) train
+
+You can train with KD or KD + fine-tuning.
+
+* For example, train with KD + fine-tuning, download the ImageNet pretrained model's checkpoint and
+ download the teacher network's checkpoint(Swin-T-Att-UNet). Then put them into `model_data` dir.
+
+* Modify the parameters of `train_distillation.py`. For example, train FastSegFormer-P(KD + fin-tuning):
+```python
+t_backbone = "swin_T_224"
+s_backbone = "poolformer_s12"
+pretrained = False
+t_model_path = "model_data/teacher_Swin_T_Att_Unet_input_512.pth"
+s_model_path = "model_data/poolformer_s12.pth" # if s_model_path = "": from scratch else fine-tuning
+
+Init_Epoch = 0
+Freeze_Epoch = 50
+Freeze_batch_size = 6
+UnFreeze_Epoch = 1000
+Unfreeze_batch_size = 6
+Freeze_Train = True
+
+Init_lr = 1e-5
+Min_lr = Init_lr * 0.01
+```
+
+* Train the FastSegFormer-P model using fine-tuning and KD on `Orange_Navel_1.5k` with 
+batch size of 6.
+```shell
+python train_distillation.py
+```
+
 
 #### Evaluation of segmentation
 * For example, download the fine-tuning models FastSegFormer-P for Orange_Navel_1.5k and put them into 
