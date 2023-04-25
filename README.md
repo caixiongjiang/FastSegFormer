@@ -23,7 +23,7 @@ This is the official repository for our work: FastSegFormer([PDF]())
 
 ---
 
-- [ ] The training and testing codes are available here.()
+- [x] The training and testing codes are available here.(April/25/2023)
 
 ### Demos
 
