@@ -106,9 +106,9 @@ $u$ and $\sigma$ represent the mean and standard deviation of the features.
 |    PoolFormer-S12    | $224\times 224$  |    [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/poolformer_s12_ImageNet_1k_224x224.pth)    |
 |    PoolFormer-S24    | $224\times 224$  |    [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/poolformer_s24_ImageNet_1k_224x224.pth)    |
 |    PoolFormer-S36    | $224\times 224$  |    [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/poolformer_s36_ImageNet_1k_224x224.pth)    |
-|       PIDNet-S       | $224\times 224$  |       [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/PIDNet_L_ImageNet_1k_224x224.pth)       |
+|       PIDNet-S       | $224\times 224$  |       [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/PIDNet_S_ImageNet_1k_224x224.pth)       |
 |       PIDNet-M       | $224\times 224$  |       [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/PIDNet_M_ImageNet_1k_224x224.pth)       |
-|       PIDNet-L       | $224\times 224$  |       [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/PIDNet_S_ImageNet_1k_224x224.pth)       |
+|       PIDNet-L       | $224\times 224$  |       [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/PIDNet_L_ImageNet_1k_224x224.pth)       |
 
 * Teacher network:
 
