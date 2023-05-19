@@ -1,40 +1,40 @@
 ## FastSegFormer: A knowledge distillation-based method for real-time semantic segmentation of surface defects in navel oranges
 
-[中文](https://github.com/caixiongjiang/FastSegFormer/blob/main/README_CH.md)
+[English](https://github.com/caixiongjiang/FastSegFormer/blob/main/README.md)
 
-This is the official repository for our work: FastSegFormer([PDF]())
+这是我们工作的官方资料库: FastSegFormer([PDF]())
 
-### Highlights
+### 亮点
 
 ---
 
-* Performance of different models on navel orange dataset (test set) against their detection speed on RTX3050Ti:
+* 不同模型在脐橙数据集（测试集）上的表现与它们在RTX3050Ti上的检测速度对比:
 
 <p align="center">
 <img src="Images/fps_mIoU_figure.png" alt="Image 1" width="550"/>
 </p>
 
-* Performance of different models on navel orange dataset (test set) against their parameters:
+* 不同模型在脐橙数据集（测试集）上的表现与它们的参数对比:
 
 <p align="center">
 <img src="Images/params_mIoU_figure.png" alt="Image 2" width="550"/>
 </p>
 
 
-### Updates
+### 更新
 
 ---
 
-- [x] The training and testing codes are available here.(April/25/2023)
-- [x] Create PyQT interface for navel orange defect segmentation. (May/10/2023)
-- [x] Produce 30 frames of navel orange assembly line simulation video. (May/13/2023)
+- [x] 完成训练和测试的代码。(2023 4.25)
+- [x] 创建用于脐橙缺陷分割的PyQT接口。 (2023 5.10)
+- [x] 制作30帧脐橙流水线模拟视频。 (2023 5.13)
 
-### Demos
+### 示例
 
 ---
 
-* Some demos of the segmentation performance of our proposed FastSegFormer:Original image(left) and Label image(middle) and
-FastSegFormer-P(right). The original image contains enhanced image.
+* 我们提出的FastSegFormer的分割性能的一些演示：原始图像（左），标签图像（中）以及
+FastSegFormer-P（右）。原始图像中包含增强的图像。
 
 <!-- 3x6 grid of images -->
 <div align="center">
@@ -51,10 +51,8 @@ FastSegFormer-P(right). The original image contains enhanced image.
   <img src="Images/predict_pngs/img663/FastSegFormer-P-img663.png" width="200" height="200">
 </div>
 
-* A demo of Navel Orange Video Segmentation:Original video(left) and detection video(right).
-The actual detection video reaches 30 fps by weighted half-precision (FP16) quantization technique
-(The actual video detection is the total latency of pre-processing, inference and post-processing of the image).
-Navel orange defect picture and video detection UI is available at [FastSegFormer-pyqt](https://github.com/caixiongjiang/FastSegFormer-pyqt).
+* 脐橙视频分割的演示：原始视频（左）和检测视频（右）。通过加权半精度（FP16）量化技术，实际检测视频达到30帧(实际检测视频是图像的预处理、推理和后处理的总延迟）。
+脐橙缺陷图片和视频检测用户界面可在[FastSegFormer-pyqt](https://github.com/caixiongjiang/FastSegFormer-pyqt)获得.
 
 <p align="center">
   <img src="Images/orange_video.gif" alt="Cityscapes" width="360"/>
@@ -62,17 +60,14 @@ Navel orange defect picture and video detection UI is available at [FastSegForme
   <span align="center">Navel orange simulation line detection video</span>
 </p>
 
-### Overview
+### 概述
 
 ---
 
-* An overview of the architecture of our proposed FastSegFormer-P. The architecture of FastSegFormer-E is derived from FastSegFormer-P
-replacing the backbone network EfficientFormerV2-S0.
+* 我们提出的FastSegFormer-P的架构概述。FastSegFormer-E的架构源自骨干网络Poolformer-S12取代EfficientFormerV2-S0。
 ![](Images/model.png)
 
-* An overview of the proposed multi-resolution knowledge distillation.(To solve the problem that the size and number of channels of the teacher network and student
-network feature maps are different:the teacher network's feature maps are down-sampled by bilinear interpolation, and the student network's feature maps
- are convolved point-by-point to increase the number of channels)
+* 提出的多分辨率知识提炼法的概述。（为了解决教师网络和学生网络特征图的大小和通道数不同的问题：教师网络的特征图通过双线性插值进行下采样，而学生网络的特征图通过逐点卷积来增加通道数。）
 ![](Images/Knowledge%20Distillation.png)
 
 **P&KL loss**:
@@ -81,12 +76,9 @@ $$
 L_{logits}(\text{S}) = \frac{1}{W_{s}\times H_{s}}(k_1t^2 \sum_{i \in R}\text{KL}(q_i^s, q_i^t) + (1 - k_1)\sum_{i \in R}\text{MSE}(p_i^s, p_i^t))
 $$
 
-Where $q_{i}^s$ represents the class probability of the $i$ th pixel output from the simple network S, $q_{i}^t$ represents
-the class probability of the $i$ th pixel output from the complex network T, $\text{KL}(\cdot)$ represents Kullback-Leibler
-divergence, $p_{i}^s$ represents the $i$ th pixel output from the simple network S, $p_{i}^t$ represents the $i$ th pixel
-output from the complex network T, $\text{MSE}(\cdot)$ represents the mean square error calculation, 
-$R=\{1,2,..., W_s\times H_s\}$ represents all pixels, and $t$ represents the temperature coefficient. In this experiment, 
-$t=2$, $k_1=0.5$.
+其中 $q_{i}^s$ 从简单网络S输出的第 $i$ 类像素概率, $q_{i}^t$ 代表从复杂网络T输出的第 $i$ 类像素概率， $\text{KL}(\cdot)$ 代表Kullback-Leibler
+divergence, $p_{i}^s$ 代表从简单网络S输出的第 $i$ 类像素, $p_{i}^t$ 代表从复杂网络T输出的第 $i$ 类像素, $\text{MSE}(\cdot)$ 代表均方误差的计算，
+$R=\{1,2,..., W_s\times H_s\}$ 代表所有像素, and $t$ 代表温度系数. 在这个实验中， $t=2$, $k_1=0.5$.
 
 **NFD loss**:
 
@@ -94,23 +86,22 @@ $$
 L_{n}^{NFD} = \sum_{i=1}^n \frac{1}{W_s\times H_s} L_2(\text{Normal}(F_{i}^t), \text{Normal}(F_{i}^s))
 $$
 
-Where $n$ represents the number of intermediate feature maps, $W_s$ and $H_s$ represent the height and width of the simple model 
-feature map, $L_2(\cdot)$ represents the Euclidean calculation of the feature maps, $F_{i}^t$ represents the $i$ th feature map generated
-by the complex network T, $F_{i}^s$ represents the $i$ th feature map generated by the simple network S,
-$\text{Normal}$ represents the normalization of the feature maps on $(W, H)$, the $\text{Normal}(\cdot)$ is given as follows:
+其中 $n$ 代表中间特征图的数量， $W_s$ 和 $H_s$ 代表简单模型特征图的高度和宽度, $L_2(\cdot)$ 代表特征图的欧几里得计算， $F_{i}^t$ 代表复杂网络T生成的第 $i$ 个特征图, 
+$F_{i}^s$ 简单网络S生成的第 $i$ 个特征图，
+$\text{Normal}$ 代表在特征图上进行$(W, H)$ 的归一化， $\text{Normal}(\cdot)$ 表示如下:
 
 $$
 \bar{F} = \frac{1}{\sigma}(F - u)
 $$
 
-where $F$ represents the original feature map, $\bar{F}$ represents the feature transform, and 
-$u$ and $\sigma$ represent the mean and standard deviation of the features.
+其中 $F$ 代表原来的特征图, $\bar{F}$ 代表特征转换结果，并且
+$u$ 和 $\sigma$ 代表特征图的均值和方差。
 
-### Models
+### 模型
 
 ---
 
-* Pretrained backbone network:
+* 预训练骨干网络:
 
 |  Model(ImageNet-1K)  |    Input size    |                                                               ckpt                                                               |
 |:--------------------:|:----------------:|:--------------------------------------------------------------------------------------------------------------------------------:|
@@ -123,13 +114,13 @@ $u$ and $\sigma$ represent the mean and standard deviation of the features.
 |       PIDNet-M       | $224\times 224$  |       [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/PIDNet_M_ImageNet_1k_224x224.pth)       |
 |       PIDNet-L       | $224\times 224$  |       [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/PIDNet_L_ImageNet_1k_224x224.pth)       |
 
-* Teacher network:
+* 教师网络:
 
 |      Model      |   Input size    | mIoU(%) | mPA(%) | Params | GFLOPs |                                                                      ckpt                                                                       |
 |:---------------:|:---------------:|:-------:|:------:|:------:|:------:|:-----------------------------------------------------------------------------------------------------------------------------------------------:|
 | Swin-T-Att-UNet | $512\times 512$ |  90.53  | 94.65  | 49.21M | 77.80  | [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/teacher_Swin_T_Att_Unet_Orange_Navel_4.5k_input_512x512.pth) |
 
-* FastSegFormer after fine-tuning and knowledge distillation:
+* 微调和知识蒸馏后的FastSegFormer模型:
 
 |      Model       |    Input size    | mIoU(%) | mPA(%) | Params | GFLOPs | RTX3060(FPS) | RTX3050Ti(FPS) |                                                               ckpt                                                                |                                                   onnx                                                   |
 |:----------------:|:----------------:|:-------:|:------:|:------:|:------:|:------------:|:--------------:|:---------------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------:|
@@ -137,14 +128,13 @@ $u$ and $\sigma$ represent the mean and standard deviation of the features.
 | FastSegFormer-P  | $224\times 224$  |  89.33  | 93.78  | 14.87M |  2.70  |     108      |       93       | [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.1/FastSegFormer_P_Orange_Navel_4.5k_224x224.pth) | [download](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.2/FastSegFormer_P.onnx) |
 
 
-### Ablation study
+### 消融研究
 
 ---
 
-You can see all results and process of our experiment in `logs` dir, which include ablation study and comparison 
-with other lightweight models.
+你可以在`logs`文件夹中看到我们实验的所有结果和过程，其中包括消融研究和与其他轻量级模型的比较。
 
-* The Acc.(mIoU) of FastSegFormer models with different network structure(PPM, MSP and Image reconstruction branch) on validation set:
+* 具有不同网络结构（PPM、MSP和图像重建分支）的FastSegFormer模型在验证集上的准确率(mIoU):
 
 <p align="left">
 <img src="Images/miou_vs_epoch_FastSegFormer-E.png" alt="Image 1" width="650"/>
@@ -164,69 +154,62 @@ with other lightweight models.
 |    FastSegFormer-P†     |  88.57  | 93.15  |     94.42     | 14.87  |  2.70  |
 | FastSegFormer-P w/ KD † |  89.33  | 93.78  |     94.68     | 14.87  |  2.70  |
 
-### Environment
+### 环境
 
 ---
 
-This implementation is based on [unet-pytorch](https://github.com/bubbliiiing/unet-pytorch). The detection speed(FPS)
-is tested on single RTX3060 and on single RTX3050Ti.
+这个实现基于[unet-pytorch](https://github.com/bubbliiiing/unet-pytorch)。检测速度指标(FPS)是在单个RTX3060和单个RTX3050Ti上测试。
 
-* Hardware Configuration: A graphics card with 12G graphics memory is a must, as our knowledge distillation
-method will take up a lot of video memory during training.(When the batch size of knowledge distillation is 6,
- the graphics memory occupies 11.8G) Of course you can also skip the distillation method, which will take up a
-very low amount of graphics memory.
-* Basic environment configuration: Our code currently only supports single card training. Our training environment
-:Python 3.9, Pytorch 1.12.1, CUDA 11.6.
+* 硬件配置： 一个拥有12G显存的显卡是必须的，因为我们的知识蒸馏方法在训练中会占用大量的显存。(当知识蒸馏的批量大小为6时，显存占用11.8G)、
+ 当然，你也可以跳过蒸馏方法，这将占用非常少的显存。
+* 基本环境配置： 我们的代码目前只支持单卡训练。我们的训练环境:Python 3.9, Pytorch 1.12.1, CUDA 11.6.
 
-### Usage
+### 使用
 
-#### Prepare the dataset
+#### 准备数据集
 
-We only provide 1448 navel orange defect dataset in VOC format, if you want to extend the dataset, you can use
-[Imgaug for segmentation maps and masks](https://imgaug.readthedocs.io/en/latest/source/examples_segmentation_maps.html) for data enhancement.
+我们只提供了带有1448张VOC格式的脐橙缺陷图像的数据集，如果你想扩展数据集，可以使用
+[Imgaug for segmentation maps and masks](https://imgaug.readthedocs.io/en/latest/source/examples_segmentation_maps.html)进行图像增强。
 
-* Download the [Orange_Navel_1.5k](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/Orange_Navel_1.5k.zip) dataset and unzip them in `data/Orange_Navel_1.5k` dir.
-* The dataset we provide has been randomly partitioned according to the training validation test 6:2:2. You
-can re-randomize or re-randomize after changing the ratio using `voc_annotation.py`.
+* 下载[Orange_Navel_1.5k](https://github.com/caixiongjiang/FastSegFormer/releases/download/v1.0.0/Orange_Navel_1.5k.zip)数据集并解压在`data/Orange_Navel_1.5k`目录下.
+* 我们提供的数据集已经按照训练验证测试6:2:2进行了随机划分。可以使用`voc_annotation.py`重新随机化或在改变比例后重新随机化。
 
-#### Train
+#### 训练
 
-* Download the source code zip or clone the project:
+* 下载源代码压缩包或克隆该项目:
 ```shell
 $ git clone https://github.com/caixiongjiang/FastSegFormer
 ```
-* Go to the root directory of project and download the required packages:
+* 进入项目的根目录，激活虚拟环境，下载所需的软件包:
 ```shell
 $ conda activate 'your anaconda environment'
 $ pip install -r requirements.txt
 ```
 
-* Download the ImageNet pretrained models and put them into `model_data` dir.
+* 下载ImageNet预训练的模型，并将其放入`model_data`目录。
 
-Thanks to three repositories [EfficientFormer](https://github.com/snap-research/EfficientFormer), 
-[poolformer](https://github.com/sail-sg/poolformer) and [PIDNet](https://github.com/XuJiacong/PIDNet), We provide the pretraining weights of EfficientFormerV2, PoolFormer 
-and PIDNet on ImageNet-1K.
-
-* Modify the parameters of `train.py`. For example, train FastSegFormer-P(fin-tuning):
+感谢三个资源库[EfficientFormer](https://github.com/snap-research/EfficientFormer)，
+[poolformer](https://github.com/sail-sg/poolformer)和[PIDNet](https://github.com/XuJiacong/PIDNet)，我们提供了EfficientFormerV2、PoolFormer和PIDNet在ImageNet-1K上的预训练权重。
+* 修改以下的参数`train.py`。例如，训练FastSegFormer-P(fin-tuning):
 ```python
 backbone    = "poolformer_s12"
 pretrained  = False
 model_path  = "model_data/poolformer_s12.pth"
 input_shape = [224, 224]
 ```
-* Train the FastSegFormer-P model on Orange_Navel_1.5k with batch size of 32.
+* 在Orange_Navel_1.5k上训练FastSegFormer-P模型，批次大小为32。
 ```shell
 python train.py
 ```
 
-#### Knowledge distillation(KD) train
+#### 知识蒸馏（KD）训练
 
-You can train with KD or KD + fine-tuning.
+你可以用KD或KD+微调进行训练。
 
-* For example, train with KD + fine-tuning, download the ImageNet pretrained model's checkpoint and
- download the teacher network's checkpoint(Swin-T-Att-UNet). Then put them into `model_data` dir.
+* 例如，用KD+微调进行训练，下载ImageNet预训练模型的权重和
+下载教师网络的权重（Swin-T-Att-UNet）。然后把它们放到`model_data`目录下。
 
-* Modify the parameters of `train_distillation.py`. For example, train FastSegFormer-P(KD + fine-tuning):
+* 修改`train_distillation.py`的参数。例如，训练FastSegFormer-P(KD + fine-tuning):
 ```python
 t_backbone = "swin_T_224"
 s_backbone = "poolformer_s12"
@@ -245,17 +228,15 @@ Init_lr = 1e-5
 Min_lr = Init_lr * 0.01
 ```
 
-* Train the FastSegFormer-P model using fine-tuning and KD on `Orange_Navel_1.5k` with 
-batch size of 6.
+* 在`Orange_Navel_1.5k`数据上使用微调和KD训练FastSegFormer-P模型，批次大小为6。
 ```shell
 python train_distillation.py
 ```
 
 
-#### Evaluation of segmentation
-* For example, download the fine-tuning models FastSegFormer-P for Orange_Navel_1.5k and put them into 
-`logs/FastSegFormer-P` dir.
-* modify the parameters of `unet.py`. For example, evaluate FastSegFormer-P(fin-tuning):
+#### 对分割的评估
+* 例如，下载`Orange_Navel_1.5k`的微调模型FastSegFormer-P并将其放入`logs/FastSegFormer-P`目录下。
+* 修改`unet.py`的参数。例如，评估FastSegFormer-P(fin-tuning):
 ```python
 _defaults = {
         "model_path"    : 'logs/FastSegFormer-P.pth',
@@ -269,44 +250,44 @@ _defaults = {
 def generate(self, onnx=False):
     self.net = FastSegFormer(num_classes=self.num_classes, pretrained=False, backbone=self.backbone, Pyramid="multiscale", cnn_branch=True)
 ```
-* Evaluate the test set on Navel_Orange_1.5k and the result will be in the `miou_out` dir.
+* 在`Navel_Orange_1.5k`上评估测试集，结果将在`miou_out`目录下。
 ```shell
 python get_miou.py
 ```
 
-#### predict
-Same as the evaluation session, firstly modify the parameters of `unet.py`, and then run `predict.py`:
+#### 预测
+与评估环节相同，首先修改`unet.py`的参数，然后运行`predict.py`:
 ```shell
 python predict.py
-# Generate tips and input the image dir 
+# 生成提升并输入图片地址
 Input image filename:'your image dir'
 ```
 
-#### Evaluation of deployment
-* Detection speed(FPS):
+#### 部署评估
+* 检测速度(FPS):
 ```shell
 python speeding.py
 ```
 
-* Params and GFLOPs:
+* Parameters 和 GFLOPs:
 ```shell
 python model_flop_params.py
 ```
 
-### Citation
+### 引用
 
 ---
 
-if you this implementation is useful for your work, please cite our paper:
+如果你的这个实现对你的工作有帮助，请引用我们的论文:
 ```bib
 
 ```
 
-### Acknowledgement
+### 致谢
 
 ---
 
-* This implementation is based on [unet-pytorch](https://github.com/bubbliiiing/unet-pytorch).
-* FPS measurement code is borrowed from [FANet](https://github.com/feinanshan/FANet).
-* The backbone network checkpoints is download from [EfficientFormer](https://github.com/snap-research/EfficientFormer), 
+* 这个实现基于[unet-pytorch](https://github.com/bubbliiiing/unet-pytorch).
+* FPS测量代码借鉴[FANet](https://github.com/feinanshan/FANet)的做法。
+* 骨干网络预训练权重从以下地方下载，[EfficientFormer](https://github.com/snap-research/EfficientFormer), 
 [poolformer](https://github.com/sail-sg/poolformer) and [PIDNet](https://github.com/XuJiacong/PIDNet).
