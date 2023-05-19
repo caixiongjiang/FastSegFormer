@@ -24,12 +24,14 @@ This is the official repository for our work: FastSegFormer([PDF]())
 ---
 
 - [x] The training and testing codes are available here.(April/25/2023)
+- [x] Create PyQT interface for navel orange defect segmentation. (May/10/2023)
+- [x] Produce 30 frames of navel orange assembly line simulation video. (May/13/2023)
 
 ### Demos
 
 ---
 
-Some demos of the segmentation performance of our proposed FastSegFormer:Original image(left) and Label image(middle) and
+* Some demos of the segmentation performance of our proposed FastSegFormer:Original image(left) and Label image(middle) and
 FastSegFormer-P(right). The original image contains enhanced image.
 
 <!-- 3x6 grid of images -->
@@ -47,7 +49,16 @@ FastSegFormer-P(right). The original image contains enhanced image.
   <img src="Images/predict_pngs/img663/FastSegFormer-P-img663.png" width="200" height="200">
 </div>
 
+* A demo of Navel Orange Video Segmentation:Original video(left) and detection video(right).
+The actual detection video reaches 30 fps by weighted half-precision (FP16) quantization technique
+(The actual video detection is the total latency of pre-processing, inference and post-processing of the image).
+Navel orange defect picture and video detection UI is available at [FastSegFormer-pyqt](https://github.com/caixiongjiang/FastSegFormer-pyqt).
 
+<p align="center">
+  <img src="Images/orange_video.gif" alt="Cityscapes" width="360"/>
+  <img src="Images/orange_detection_video.gif" alt="Cityscapes" width="360"/></br>
+  <span align="center">Navel orange simulation line detection video</span>
+</p>
 
 ### Overview
 
