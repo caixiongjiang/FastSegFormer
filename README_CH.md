@@ -51,7 +51,7 @@ FastSegFormer-P（右）。原始图像中包含增强的图像。
   <img src="Images/predict_pngs/img663/FastSegFormer-P-img663.png" width="200" height="200">
 </div>
 
-* 脐橙视频分割的演示：原始视频（左）和检测视频（右）。通过加权半精度（FP16）量化技术，实际检测视频达到30帧(实际检测视频是图像的预处理、推理和后处理的总延迟）。
+* 脐橙视频分割的演示：原始视频（左）和检测视频（右）。通过半精度（FP16）量化技术和多线程技术，实际检测视频达到45~55帧(实际检测视频是图像的预处理、推理和后处理的总延迟）。
 脐橙缺陷图片和视频检测用户界面可在[FastSegFormer-pyqt](https://github.com/caixiongjiang/FastSegFormer-pyqt)获得.
 
 <p align="center">

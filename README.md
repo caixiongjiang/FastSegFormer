@@ -52,8 +52,8 @@ FastSegFormer-P(right). The original image contains enhanced image.
 </div>
 
 * A demo of Navel Orange Video Segmentation:Original video(left) and detection video(right).
-The actual detection video reaches 30 fps by weighted half-precision (FP16) quantization technique
-(The actual video detection is the total latency of pre-processing, inference and post-processing of the image).
+The actual detection video reaches 45~55 fps by weighted half-precision (FP16) quantization technique
+ and multi-thread processing technique.(The actual video detection is the total latency of pre-processing, inference and post-processing of the image).
 Navel orange defect picture and video detection UI is available at [FastSegFormer-pyqt](https://github.com/caixiongjiang/FastSegFormer-pyqt).
 
 <p align="center">
