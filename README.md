@@ -8,16 +8,16 @@ This is the official repository for our work: FastSegFormer([PDF]())
 
 ---
 
-* Performance of different models on navel orange dataset (test set) against their detection speed on RTX3050Ti:
+* Performance of different models on navel orange dataset (test set) against their detection speed on RTX3060:
 
 <p align="center">
-<img src="Images/fps_mIoU_figure.png" alt="Image 1" width="550"/>
+<img src="Images/fps_mIoU_figure.jpg" alt="Image 1" width="550"/>
 </p>
 
 * Performance of different models on navel orange dataset (test set) against their parameters:
 
 <p align="center">
-<img src="Images/params_mIoU_figure.png" alt="Image 2" width="550"/>
+<img src="Images/params_mIoU_figure.jpg" alt="Image 2" width="550"/>
 </p>
 
 
@@ -153,16 +153,20 @@ with other lightweight models.
 
 * Knowledge distillation(KD) and fine-tuning(†):
 
-|          Model          | mIoU(%) | mPA(%) | mPrecision(%) | Params | GFLOPs |
-|:-----------------------:|:-------:|:------:|:-------------:|:------:|:------:|
-|     FastSegFormer-E     |  86.51  | 91.63  |     93.50     |  5.01  |  0.80  |
-|  FastSegFormer-E w/ KD  |  87.24  | 92.20  |     93.82     |  5.01  |  0.80  |
-|    FastSegFormer-E†     |  88.49  | 93.16  |     94.32     |  5.01  |  0.80  |
-| FastSegFormer-E w/ KD † |  88.78  | 93.33  |     94.48     |  5.01  |  0.80  |
-|     FastSegFormer-P     |  84.15  | 89.44  |     92.84     | 14.87  |  2.70  |
-|  FastSegFormer-P w/ KD  |  85.43  | 90.64  |     93.20     | 14.87  |  2.70  |
-|    FastSegFormer-P†     |  88.57  | 93.15  |     94.42     | 14.87  |  2.70  |
-| FastSegFormer-P w/ KD † |  89.33  | 93.78  |     94.68     | 14.87  |  2.70  |
+|               Model                | mIoU(%) | mPA(%) | mPrecision(%) | Params | GFLOPs |
+|:----------------------------------:|:-------:|:------:|:-------------:|:------:|:------:|
+|          FastSegFormer-E           |  86.51  | 91.63  |     93.50     |  5.01  |  0.80  |
+|  FastSegFormer-E w/ $\text{KD}_1$  |  87.24  | 92.20  |     93.82     |  5.01  |  0.80  |
+|  FastSegFormer-E w/ $\text{KD}_2$  |  87.38  | 92.35  |     93.83     |  5.01  |  0.80  |
+|          FastSegFormer-E†          |  88.49  | 93.16  |     94.32     |  5.01  |  0.80  |
+| FastSegFormer-E w/ $\text{KD}_1$ † |  88.68  | 92.97  |     94.75     |  5.01  |  0.80  |
+| FastSegFormer-E w/ $\text{KD}_2$ † |  88.78  | 93.33  |     94.48     |  5.01  |  0.80  |
+|          FastSegFormer-P           |  84.15  | 89.44  |     92.84     | 14.87  |  2.70  |
+|  FastSegFormer-P w/ $\text{KD}_1$  |  84.77  | 90.12  |     92.91     | 14.87  |  2.70  |
+|  FastSegFormer-P w/ $\text{KD}_2$  |  85.43  | 90.64  |     93.20     | 14.87  |  2.70  |
+|          FastSegFormer-P†          |  88.57  | 93.15  |     94.42     | 14.87  |  2.70  |
+| FastSegFormer-P w/ $\text{KD}_1$ † |  88.94  | 93.25  |     94.77     | 14.87  |  2.70  |
+| FastSegFormer-P w/ $\text{KD}_2$ † |  89.33  | 93.78  |     94.68     | 14.87  |  2.70  |
 
 ### Environment
 
