@@ -1,6 +1,6 @@
 ## FastSegFormer: A knowledge distillation-based method for real-time semantic segmentation of surface defects in navel oranges
 
-[English](https://github.com/caixiongjiang/FastSegFormer/blob/main/README.md)
+[English](README.md)
 
 这是我们工作的官方资料库: FastSegFormer([PDF]())
 
@@ -28,6 +28,7 @@
 - [x] 完成训练和测试的代码。(2023 4.25)
 - [x] 创建用于脐橙缺陷分割的PyQT接口。 (2023 5.10)
 - [x] 制作30帧脐橙流水线模拟视频。 (2023 5.13)
+- [x] 新增yolov8n-seg和yolov8s-seg实例分割训练，测试，预测的结果。[点击跳转](yolov8-seg/README_CH.md)(2023 12.10)
 
 ### 示例
 
