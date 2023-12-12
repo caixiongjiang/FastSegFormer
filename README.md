@@ -28,7 +28,7 @@ This is the official repository for our work: FastSegFormer([PDF]())
 - [x] The training and testing codes are available here.(April/25/2023)
 - [x] Create PyQT interface for navel orange defect segmentation. (May/10/2023)
 - [x] Produce 30 frames of navel orange assembly line simulation video. (May/13/2023)
-- [x] Add yolov8n-seg and yolov8-seg instance segmentation training, test, and prediction results.[Jump to](yolov8-seg/README.md)(December/13/2023)
+- [x] Add yolov8n-seg and yolov8-seg instance segmentation training, test, and prediction results.[Jump to](yolov8-seg/README.md)(December/10/2023)
 
 ### Demos
 
