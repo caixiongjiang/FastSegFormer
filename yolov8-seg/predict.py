@@ -14,6 +14,6 @@ if __name__ == '__main__':
     results = model('Orange-Navel-4.5k/images/test/img534.jpg', save=True)
     results = model('Orange-Navel-4.5k/images/test/img544.jpg', save=True)
     results = model('Orange-Navel-4.5k/images/test/img685.jpg', save=True)
-    results = model('Orange-Navel-4.5k/images/test/img1010.jpg', save=True)
+    results = model('Orange-Navel-4.5k/images/test/img1110.jpg', save=True)
     results = model('Orange-Navel-4.5k/images/test/img1234.jpg', save=True)
     results = model('Orange-Navel-4.5k/images/test/img1448.jpg', save=True)
