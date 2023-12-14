@@ -6,8 +6,8 @@
 
 * `yolov8n-seg-train`: yolov8n-seg模型训练日志。
 * `yolov8s-seg-train`: yolov8s-seg模型训练日志。
-* `yolov8n-seg-val`: yolov8n-seg模型测试结果。
-* `yolov8s-seg-val`: yolov8s-seg模型测试结果。
+* `yolov8n-seg-test`: yolov8n-seg模型测试结果。
+* `yolov8s-seg-test`: yolov8s-seg模型测试结果。
 * `yolov8n-seg-predict`: yolov8n-seg模型部分图片预测结果。
 * `yolov8s-seg-predict`: yolov8s-seg模型部分图片预测结果。
 * `labels`: 部分图片标签掩码，与预测文件夹中的一一对应。
