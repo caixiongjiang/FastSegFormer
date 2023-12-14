@@ -2,7 +2,7 @@ task: segment
 mode: train
 model: yolov8n-seg.pt
 data: ./data.yaml
-epochs: 300
+epochs: 500
 patience: 50
 batch: 8
 imgsz: 224

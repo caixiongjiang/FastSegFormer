@@ -15,9 +15,7 @@
 * `train.py`: Train scripts.
 * `test.py`: Test scripts.
 * `predict.py`: Predict scripts.
-
-**Although the yolov8-seg family of models has an extremely fast inference speed, 
-it is very unstable in the distinction between wind scarring and ulcer, 
-and the example segmentation method is difficult to perform the task of detailed segmentation of this defect dataset.**
+* `yolov8-seg.yaml`: Model config file.
+* `data.yaml`: Datasets config file.
 
 

@@ -76,8 +76,8 @@ if __name__ == '__main__':
     
     # RGB->BGR(CV2读取)
     SUNBURN = [0, 0, 128]
-    ULCER = [0, 128, 128]
-    WIND_SCARRING = [0, 128, 0]
+    ULCER = [0, 128, 0]
+    WIND_SCARRING = [0, 128, 128]
     COLORS = [SUNBURN, ULCER, WIND_SCARRING]
     
     tongji(r"Orange-Navel-4.5k\caitu\train", {})

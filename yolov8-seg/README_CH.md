@@ -15,7 +15,5 @@
 * `train.py`: 训练脚本。
 * `test.py`: 测试脚本。
 * `predict.py`: 预测图片脚本。
-
-**尽管yolov8-seg系列模型拥有极快的推理速度，
-但其在wind-scarring和ulcer的区分上很不稳定，
-该实例分割方法难以胜任该缺陷数据集的细致化分割任务**
+* `yolov8-seg.yaml`: 模型配置文件
+* `data.yaml`: 数据集配置文件

@@ -1,0 +1,9 @@
+path: ./Orange-Navel-4.5k
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: sunburn
+  1: ulcer
+  2: wind scarring

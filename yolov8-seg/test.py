@@ -3,9 +3,8 @@ from ultralytics import YOLO
 
 if __name__ == '__main__':
     # 载入一个模型
-    model = YOLO('runs/segment/train/weights/best.pt')  # 载入自定义模型
-    # model = YOLO('runs/segment/train2/weights/best.pt')  # 载入自定义模型
-
+    # model = YOLO('runs/segment/yolov8n-seg-train/weights/best.pt')  # 载入自定义模型
+    model = YOLO('runs/segment/yolov8s-seg-train/weights/best.pt')  # 载入自定义模型
     # 验证模型
     metrics = model.val()  # 不需要参数，数据集和设置被记住了
     metrics.box.map    # map50-95(B)
