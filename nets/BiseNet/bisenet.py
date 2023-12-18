@@ -74,19 +74,19 @@ class ContextPath(nn.Module):
 
         self.backbone = backbone
         if backbone == 'resnet18':
-            self.resnet = Resnet18()
+            self.resnet = Resnet18(pretrained=True)
             self.expansion = 1
         elif backbone == 'resnet34':
-            self.resnet = Resnet34()
+            self.resnet = Resnet34(pretrained=True)
             self.expansion = 1
         elif backbone == 'resnet50':
-            self.resnet = Resnet50()
+            self.resnet = Resnet50(pretrained=True)
             self.expansion = 4
         elif backbone == 'resnet101':
-            self.resnet = Resnet101()
+            self.resnet = Resnet101(pretrained=True)
             self.expansion = 4
         elif backbone == 'resnet152':
-            self.resnet = Resnet152()
+            self.resnet = Resnet152(pretrained=True)
             self.expansion = 4
         else:
             raise RuntimeError('unknown backbone: {}'.format(backbone))

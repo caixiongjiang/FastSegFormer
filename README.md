@@ -260,7 +260,7 @@ python train_distillation.py
 #### Evaluation of segmentation
 * For example, download the fine-tuning models FastSegFormer-P for Orange_Navel_1.5k and put them into 
 `logs/FastSegFormer-P` dir.
-* modify the parameters of `unet.py`. For example, evaluate FastSegFormer-P(fin-tuning):
+* modify the parameters of `unet.py`. For example, evaluate FastSegFormer-P(fine-tuning):
 ```python
 _defaults = {
         "model_path"    : 'logs/FastSegFormer-P.pth',
