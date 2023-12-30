@@ -4,6 +4,10 @@
 
 这是我们工作的官方资料库: FastSegFormer([PDF]())
 
+### 新闻
+
+这项工作于2023年12月29日被`Computers and Electronics in Agriculture`期刊接收。
+
 ### 亮点
 
 ---

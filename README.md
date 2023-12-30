@@ -4,6 +4,10 @@
 
 This is the official repository for our work: FastSegFormer([PDF]())
 
+### News
+
+This work was accepted for publication in the journal `Computers and Electronics in Agriculture` on December 29, 2023.
+
 ### Highlights
 
 ---
