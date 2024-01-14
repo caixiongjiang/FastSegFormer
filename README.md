@@ -308,18 +308,14 @@ python model_flop_params.py
 
 if you this implementation is useful for your work, please cite our paper:
 ```bib
-@article{CAI2024108604,
-title = {FastSegFormer: A knowledge distillation-based method for real-time semantic segmentation of surface defects in navel oranges},
-journal = {Computers and Electronics in Agriculture},
-volume = {217},
-pages = {108604},
-year = {2024},
-issn = {0168-1699},
-doi = {https://doi.org/10.1016/j.compag.2023.108604},
-url = {https://www.sciencedirect.com/science/article/pii/S0168169923009924},
-author = {Xiongjiang Cai and Yun Zhu and Shuwen Liu and Zhiyue Yu and Youyun Xu},
-keywords = {Semantic segmentation, FastSegFomer, Lightweight model, Navel orange, Defect detection},
-abstract = {Navel oranges are valued citrus fruits with a strong market presence, and detecting defects is crucial in their sorting due to common diseases and abnormalities during growth and transport. Deep learning, particularly semantic segmentation, is revolutionizing the fruit sorting industry by overcoming the limitations of traditional defect detection and enhancing the accuracy of classifying complex defects in navel oranges. The FastSegFormer network, enabling real-time fruit defect detection, addresses this challenge with our introduced Multi-scale Pyramid (MSP) module for its architecture and a semi-resolution reconstruction branch post-feature fusion. We suggested a multi-resolution knowledge distillation strategy to further increase the network’s segmentation accuracy. We developed a navel orange defect segmentation dataset, trained, and evaluated our FastSegFormer-E model, designed for memory-constrained devices. It outperforms ENet by 3.15%, achieving a mIoU of 88.78% on the test set. The FastSegFormer-P model, tailored for high-speed detection, was tested on the mid-range RTX3060 graphics card, surpassing ENet by 3.7% with a mIoU of 89.33% and reaching 108 frames/s. The results demonstrate that the FastSegFormer-E model attains enhanced detection accuracy with reduced memory usage, whereas the FastSegFormer-P model stands out by striking an optimal balance between top-tier detection accuracy and rapid processing speed. Deploying the algorithm system on the same platform as pipeline sorting, 20 frame/s was achieved on a Jetson Nano with very low computational power. The model significantly improves the detection of subtle and intricate edge defects, achieving real-time speeds. Our proposed algorithm enhances the fineness of fruit sorting, resolves the limitation of existing algorithms that apply to a narrow range of fruit sorting scenarios, and provides an efficient and accurate solution for large-scale navel orange defect detection.}
+@article{cai2024fastsegformer,
+  title={FastSegFormer: A knowledge distillation-based method for real-time semantic segmentation of surface defects in navel oranges},
+  author={Cai, Xiongjiang and Zhu, Yun and Liu, Shuwen and Yu, Zhiyue and Xu, Youyun},
+  journal={Computers and Electronics in Agriculture},
+  volume={217},
+  pages={108604},
+  year={2024},
+  publisher={Elsevier}
 }
 ```
 
