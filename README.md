@@ -216,7 +216,7 @@ Thanks to three repositories [EfficientFormer](https://github.com/snap-research/
 [poolformer](https://github.com/sail-sg/poolformer) and [PIDNet](https://github.com/XuJiacong/PIDNet), We provide the pretraining weights of EfficientFormerV2, PoolFormer 
 and PIDNet on ImageNet-1K.
 
-* Modify the parameters of `train.py`. For example, train FastSegFormer-P(fin-tuning):
+* Modify the parameters of `train.py`. For example, train FastSegFormer-P(fine-tuning):
 ```python
 backbone    = "poolformer_s12"
 pretrained  = False
@@ -263,7 +263,7 @@ python train_distillation.py
 
 #### Evaluation of segmentation
 * For example, download the fine-tuning models FastSegFormer-P for Orange_Navel_1.5k and put them into 
-`logs/FastSegFormer-P` dir.
+`logs` dir.
 * modify the parameters of `unet.py`. For example, evaluate FastSegFormer-P(fine-tuning):
 ```python
 _defaults = {
@@ -278,7 +278,7 @@ _defaults = {
 def generate(self, onnx=False):
     self.net = FastSegFormer(num_classes=self.num_classes, pretrained=False, backbone=self.backbone, Pyramid="multiscale", cnn_branch=True)
 ```
-* Evaluate the test set on Navel_Orange_1.5k and the result will be in the `miou_out` dir.
+* Evaluate the test set on Navel_Orange_1.5k and the result will be in the `miou_out` dir:
 ```shell
 python get_miou.py
 ```
