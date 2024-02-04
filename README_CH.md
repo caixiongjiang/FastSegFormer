@@ -210,7 +210,7 @@ input_shape = [224, 224]
 ```shell
 python train.py
 # 多显卡机子指定单卡训练
-CUDA_VISIBLE_DEVICES="gpu number" python train.py
+CUDA_VISIBLE_DEVICES={gpu number} python train.py
 ```
 
 #### 知识蒸馏（KD）训练
@@ -243,7 +243,7 @@ Min_lr = Init_lr * 0.01
 ```shell
 python train_distillation.py
 # 多显卡机子指定单卡训练
-CUDA_VISIBLE_DEVICES="gpu number" python train_distillation.py
+CUDA_VISIBLE_DEVICES={gpu number} python train_distillation.py
 ```
 
 
