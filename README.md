@@ -226,6 +226,8 @@ input_shape = [224, 224]
 * Train the FastSegFormer-P model on Orange_Navel_1.5k with batch size of 32.
 ```shell
 python train.py
+# Multi-graphics machines designated for single-card training
+CUDA_VISIBLE_DEVICES="gpu number" python train.py
 ```
 
 #### Knowledge distillation(KD) train
@@ -258,6 +260,8 @@ Min_lr = Init_lr * 0.01
 batch size of 6.
 ```shell
 python train_distillation.py
+# Multi-graphics machines designated for single-card training
+CUDA_VISIBLE_DEVICES="gpu number" python train_distillation.py
 ```
 
 
