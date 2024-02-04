@@ -2,7 +2,9 @@
 
 [中文](README_CH.md)
 
-This is the official repository for our work: FastSegFormer([PDF](https://doi.org/10.1016/j.compag.2023.108604))
+This is the official repository for our work: FastSegFormer([PDF](https://doi.org/10.1016/j.compag.2023.108604
+        
+        ))
 
 ### News
 
@@ -227,7 +229,7 @@ input_shape = [224, 224]
 ```shell
 python train.py
 # Multi-graphics machines designated for single-card training
-CUDA_VISIBLE_DEVICES="gpu number" python train.py
+CUDA_VISIBLE_DEVICES={gpu number} python train.py
 ```
 
 #### Knowledge distillation(KD) train
@@ -261,7 +263,7 @@ batch size of 6.
 ```shell
 python train_distillation.py
 # Multi-graphics machines designated for single-card training
-CUDA_VISIBLE_DEVICES="gpu number" python train_distillation.py
+CUDA_VISIBLE_DEVICES={gpu number} python train_distillation.py
 ```
 
 
