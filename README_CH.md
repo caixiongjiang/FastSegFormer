@@ -209,6 +209,8 @@ input_shape = [224, 224]
 * 在Orange_Navel_1.5k上训练FastSegFormer-P模型，批次大小为32。
 ```shell
 python train.py
+# 多显卡机子指定单卡训练
+CUDA_VISIBLE_DEVICES="gpu number" python train.py
 ```
 
 #### 知识蒸馏（KD）训练
@@ -240,6 +242,8 @@ Min_lr = Init_lr * 0.01
 * 在`Orange_Navel_1.5k`数据上使用微调和KD训练FastSegFormer-P模型，批次大小为6。
 ```shell
 python train_distillation.py
+# 多显卡机子指定单卡训练
+CUDA_VISIBLE_DEVICES="gpu number" python train_distillation.py
 ```
 
 
