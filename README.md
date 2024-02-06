@@ -2,9 +2,7 @@
 
 [中文](README_CH.md)
 
-This is the official repository for our work: FastSegFormer([PDF](https://doi.org/10.1016/j.compag.2023.108604
-        
-        ))
+This is the official repository for our work: FastSegFormer([PDF](https://doi.org/10.1016/j.compag.2023.108604))
 
 ### News
 
